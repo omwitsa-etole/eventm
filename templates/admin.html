@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d"/>
+    <meta name="assets-path" content="/static/admin/voyager-assets"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <!-- Favicon -->
+                <link rel="shortcut icon" href="/static/storage/settings/November2023/4BtCQ9Hgn11BGS2YRvhG.png" type="image/png">
+       
+        
+    <link rel="stylesheet" href="/static/admin/app.css">
+    <!-- Few Dynamic Styles -->
+    <style type="text/css">
+        .voyager .side-menu .navbar-header {
+            background:#2176FF;
+            border-color:#2176FF;
+        }
+        .widget .btn-primary{
+            border-color:#2176FF;
+        }
+        .widget .btn-primary:focus, .widget .btn-primary:hover, .widget .btn-primary:active, .widget .btn-primary.active, .widget .btn-primary:active:focus{
+            background:#2176FF;
+        }
+        .voyager .breadcrumb a{
+            color:#2176FF;
+        }
+    </style>
+
+    <!-- Additional CSS -->
+
+    <link rel="stylesheet" type="text/css" href="/static/admin/voyager-assets.css">    
+    </head>
+
+<body class="voyager ">
+
+<div id="voyager-loader">
+                <img src="/static/storage/settings/November2023/U1WzQxgCbiVMZwkg79EY.png" alt="Voyager Loader">
+    </div>
+
+
+<div class="app-container">
+    <div class="fadetoblack visible-xs"></div>
+    <div class="row content-container">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="hamburger btn-link">
+                <span class="hamburger-inner"></span>
+            </button>
+                        <ol class="breadcrumb hidden-xs">
+                                                    <li class="active"><i class="voyager-boat"></i> Dashboard</li>
+                            </ol>
+                    </div>
+        <ul class="nav navbar-nav  navbar-right ">
+            <li class="dropdown profile">
+                <a href="#" class="dropdown-toggle text-right" data-toggle="dropdown" role="button"
+                   aria-expanded="false"><img src="/static/storage/users/November2023/e3tehT26jTdvzvjCl5dw.jpg" class="profile-img"> <span
+                            class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-animated">
+                    <li class="profile-img">
+                        <img src="/static/storage/users/November2023/e3tehT26jTdvzvjCl5dw.jpg" class="profile-img">
+                        <div class="profile-body">
+                            <h5>Admin</h5>
+                            <h6>static/admin@static/admin.com</h6>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                                                                                <li class="class-full-of-rum">
+                                                <a href="/admin/profile" >
+                                                        <i class="voyager-person"></i>
+                                                        Profile
+                        </a>
+                                            </li>
+                                        <li >
+                                                <a href="https://eventmie-pro-demo.classiebit.com" >
+                                                        <i class="voyager-home"></i>
+                                                        Website
+                        </a>
+                                            </li>
+                                        <li >
+                                                <form action="static/admin/logout" method="POST">
+                            <input type="hidden" name="_token" value="YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d">
+                            <button type="submit" class="btn btn-danger btn-block">
+                                                                <i class="voyager-power"></i>
+                                                                Logout
+                            </button>
+                        </form>
+                                            </li>
+                                                        </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+        <div class="side-menu sidebar-inverse">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="side-menu-container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="static/admin">
+                    <div class="logo-icon-container">
+                                                                            <img src="/static/storage/settings/November2023/4BtCQ9Hgn11BGS2YRvhG.png" alt="Logo Icon">
+                                            </div>
+                    <div class="title">Event</div>
+                </a>
+            </div><!-- .navbar-header -->
+
+            <div class="panel widget center bgimage"
+                 style="background-image:url(/static/storage/settings/November2023/8bCTaYsmrSdY8vJ6aJVS.png); background-size: cover; background-position: 0px;">
+                <div class="dimmer"></div>
+                <div class="panel-content">
+                    <img src="/static/storage/users/November2023/e3tehT26jTdvzvjCl5dw.jpg" class="avatar" alt="Admin avatar">
+                    <h4>Admin</h4>
+                    <p>static/admin@static/admin.com</p>
+
+                    <a href="admin/profile" class="btn btn-primary">Profile</a>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+
+            
+
+        </div>
+        <div id="adminmenu"><ul class="nav navbar-nav"><li class="active"><a target="_self" href="/admin"><span class="icon voyager-boat"></span> <span class="title">Dashboard</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/categories"><span class="icon voyager-categories"></span> <span class="title">Categories</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/tags"><span class="icon voyager-puzzle"></span> <span class="title">Tags</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/events"><span class="icon voyager-calendar"></span> <span class="title">Events</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/bookings"><span class="icon voyager-dollar"></span> <span class="title">Bookings</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/commissions"><span class="icon voyager-wallet"></span> <span class="title">Commissions</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/taxes"><span class="icon voyager-documentation"></span> <span class="title">Taxes</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/users"><span class="icon voyager-people"></span> <span class="title">Users</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/contacts"><span class="icon voyager-mail"></span> <span class="title">Contacts</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/media"><span class="icon voyager-images"></span> <span class="title">Media</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/banners"><span class="icon voyager-photo"></span> <span class="title">Banners</span></a> <!----></li>
+            <li class=""><a target="_self" href="/admin/pages"><span class="icon voyager-file-text"></span> <span class="title">Pages</span></a> <!----></li><li class=""><a target="_self" href="/admin/posts"><span class="icon voyager-news"></span> <span class="title">Blog Posts</span></a> <!----></li><li class=""><a target="_self" href="/admin/menus/2/builder"><span class="icon voyager-list"></span> <span class="title">Header Menu</span></a> <!----></li><li class=""><a target="_self" href="/admin/menus/3/builder"><span class="icon voyager-list"></span> <span class="title">Footer Menu</span></a> <!----></li><li class=""><a target="_self" href="/admin/settings"><span class="icon voyager-settings"></span> <span class="title">Settings</span></a> <!----></li><li class=""><a target="_self" href="/admin/venues"><span class="icon voyager-lighthouse"></span> <span class="title">Venues</span></a> <!----></li></ul></div>
+    </nav>
+</div>
+        <script>
+            (function(){
+                    var appContainer = document.querySelector('.app-container'),
+                        sidebar = appContainer.querySelector('.side-menu'),
+                        navbar = appContainer.querySelector('nav.navbar.navbar-top'),
+                        loader = document.getElementById('voyager-loader'),
+                        hamburgerMenu = document.querySelector('.hamburger'),
+                        sidebarTransition = sidebar.style.transition,
+                        navbarTransition = navbar.style.transition,
+                        containerTransition = appContainer.style.transition;
+
+                    sidebar.style.WebkitTransition = sidebar.style.MozTransition = sidebar.style.transition =
+                    appContainer.style.WebkitTransition = appContainer.style.MozTransition = appContainer.style.transition =
+                    navbar.style.WebkitTransition = navbar.style.MozTransition = navbar.style.transition = 'none';
+
+                    if (window.innerWidth > 768 && window.localStorage && window.localStorage['voyager.stickySidebar'] == 'true') {
+                        appContainer.className += ' expanded no-animation';
+                        loader.style.left = (sidebar.clientWidth/2)+'px';
+                        hamburgerMenu.className += ' is-active no-animation';
+                    }
+
+                   navbar.style.WebkitTransition = navbar.style.MozTransition = navbar.style.transition = navbarTransition;
+                   sidebar.style.WebkitTransition = sidebar.style.MozTransition = sidebar.style.transition = sidebarTransition;
+                   appContainer.style.WebkitTransition = appContainer.style.MozTransition = appContainer.style.transition = containerTransition;
+            })();
+        </script>
+        <!-- Main Content -->
+         {%block content%}
+        {%endblock%}
+    </div>
+</div>
+<footer class="app-footer">
+    <div class="site-footer-right">
+                    Made with <i class="voyager-heart"></i> by 
+            </div>
+</footer>
+
+<!-- Javascript Libs -->
+<script type="text/javascript" src="/static/admin/voyager.js"></script>
+<script type="text/javascript" src="/static/admin/app.js"></script>
+
+<script>
+    
+    </script>
+<script>
+    Vue.component('media-manager', {
+        template: `<div>
+    <div v-if="hidden_element" :id="'dd_'+this._uid" class="dd">
+        <ol id="files" class="dd-list">
+            <li v-for="file in getSelectedFiles()" class="dd-item" :data-url="file">
+                <div class="file_link selected" aria-hidden="true" data-toggle="tooltip" data-placement="auto" :title="file">
+                    <div class="link_icon">
+                        <template v-if="fileIs(file, 'image')">
+                            <div class="img_icon" :style="imgIcon('/static/storage/'+file)"></div>
+                        </template>
+                        <template v-else-if="fileIs(file, 'video')">
+                            <i class="icon voyager-video"></i>
+                        </template>
+                        <template v-else-if="fileIs(file, 'audio')">
+                            <i class="icon voyager-music"></i>
+                        </template>
+                        <template v-else-if="fileIs(file, 'zip')">
+                            <i class="icon voyager-archive"></i>
+                        </template>
+                        <template v-else-if="fileIs(file, 'folder')">
+                            <i class="icon voyager-folder"></i>
+                        </template>
+                        <template v-else>
+                            <i class="icon voyager-file-text"></i>
+                        </template>
+                    </div>
+                    <div class="details">
+                        <div class="folder">
+                            <h4></h4>
+                        </div>
+                    </div>
+                    <i class="voyager-x dd-nodrag" v-on:click="removeFileFromInput(file)"></i>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div v-if="hidden_element">
+        <div class="btn btn-sm btn-default" v-on:click="isExpanded = !isExpanded;" style="width:100%">
+            <div v-if="!isExpanded"><i class="voyager-double-down"></i> Open</div>
+            <div v-if="isExpanded"><i class="voyager-double-up"></i> Close</div>
+        </div>
+    </div>
+    <div id="toolbar" v-if="showToolbar" :style="isExpanded ? 'display:block' : 'display:none'">
+        <div class="btn-group offset-right">
+            <button type="button" class="btn btn-primary" id="upload" v-if="allowUpload">
+                <i class="voyager-upload"></i>
+                Upload
+            </button>
+            <button type="button" class="btn btn-primary" v-if="allowCreateFolder" data-toggle="modal" :data-target="'#create_dir_modal_'+this._uid">
+                <i class="voyager-folder"></i>
+                Add Folder
+            </button>
+        </div>
+        <button type="button" class="btn btn-default" v-on:click="getFiles()">
+            <i class="voyager-refresh"></i>
+        </button>
+        <div class="btn-group offset-right">
+            <button type="button" :disabled="selected_files.length == 0" v-if="allowUpload && hidden_element" class="btn btn-default" v-on:click="addSelectedFiles()">
+                <i class="voyager-upload"></i>
+                Add all selected
+            </button>
+            <button type="button" v-if="showFolders && allowMove" class="btn btn-default" data-toggle="modal" :data-target="'#move_files_modal_'+this._uid">
+                <i class="voyager-move"></i>
+                Move
+            </button>
+            <button type="button" v-if="allowDelete" :disabled="selected_files.length == 0" class="btn btn-default" data-toggle="modal" :data-target="'#confirm_delete_modal_'+this._uid">
+                <i class="voyager-trash"></i>
+                Delete
+            </button>
+            <button v-if="allowCrop" :disabled="selected_files.length != 1 || !fileIs(selected_file, 'image')" type="button" class="btn btn-default" data-toggle="modal" :data-target="'#crop_modal_'+this._uid">
+                <i class="voyager-crop"></i>
+                Crop
+            </button>
+        </div>
+    </div>
+    <div id="uploadPreview" style="display:none;" v-if="allowUpload"></div>
+    <div id="uploadProgress" class="progress active progress-striped" v-if="allowUpload">
+        <div class="progress-bar progress-bar-success" style="width: 0"></div>
+    </div>
+    <div id="content" :style="isExpanded ? 'display:block' : 'display:none'">
+        <div class="breadcrumb-container">
+            <ol class="breadcrumb filemanager">
+                <li class="media_breadcrumb" v-on:click="setCurrentPath(-1)">
+                    <span class="arrow"></span>
+                    <strong>Media Library</strong>
+                </li>
+                <li v-for="(folder, i) in getCurrentPath()" v-on:click="setCurrentPath(i)">
+                    <span class="arrow"></span>
+                     folder 
+                </li>
+            </ol>
+        </div>
+        <div class="flex">
+            <div id="left">
+                <ul id="files">
+                    <li v-for="(file) in files" v-on:click="selectFile(file, $event)" v-on:dblclick="openFile(file)" v-if="filter(file)">
+                        <div :class="'file_link ' + (isFileSelected(file) ? 'selected' : '')">
+                            <div class="link_icon">
+                                <template v-if="fileIs(file, 'image')">
+                                    <div class="img_icon" :style="imgIcon(file.path)"></div>
+                                </template>
+                                <template v-else-if="fileIs(file, 'video')">
+                                    <i class="icon voyager-video"></i>
+                                </template>
+                                <template v-else-if="fileIs(file, 'audio')">
+                                    <i class="icon voyager-music"></i>
+                                </template>
+                                <template v-else-if="fileIs(file, 'zip')">
+                                    <i class="icon voyager-archive"></i>
+                                </template>
+                                <template v-else-if="fileIs(file, 'folder')">
+                                    <i class="icon voyager-folder"></i>
+                                </template>
+                                <template v-else>
+                                    <i class="icon voyager-file-text"></i>
+                                </template>
+                            </div>
+                            <div class="details">
+                                <div :class="file.type">
+                                    <h4>{ file.name }</h4>
+                                    <small v-if="!fileIs(file, 'folder')">
+                                        <span class="file_size">{ bytesToSize(file.size) }</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div id="file_loader" v-if="is_loading">
+                                                            <img src="/static/storage/settings/November2023/U1WzQxgCbiVMZwkg79EY.png" alt="Voyager Loader">
+                                        <p>LOADING YOUR MEDIA FILES</p>
+                </div>
+
+                <div id="no_files" v-if="files.length == 0">
+                    <h3><i class="voyager-meh"></i> No files in this folder.</h3>
+                </div>
+            </div>
+            <div id="right">
+                <div class="right_details">
+                    <div v-if="selected_files.length > 1" class="right_none_selected">
+                        <i class="voyager-list"></i>
+                        <p>{ selected_files.length } files/folder selected</p>
+                    </div>
+                    <div v-else-if="selected_files.length == 1" class="right_details">
+                        <div class="detail_img">
+                            <div v-if="fileIs(selected_file, 'image')">
+                                <img :src="selected_file.path" />
+                            </div>
+                            <div v-else-if="fileIs(selected_file, 'video')">
+                                <video width="100%" height="auto" ref="videoplayer" controls>
+                                    <source :src="selected_file.path" type="video/mp4">
+                                    <source :src="selected_file.path" type="video/ogg">
+                                    <source :src="selected_file.path" type="video/webm">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div v-else-if="fileIs(selected_file, 'audio')">
+                                <i class="voyager-music"></i>
+                                <audio controls style="width:100%; margin-top:5px;" ref="audioplayer">
+                                    <source :src="selected_file.path" type="audio/ogg">
+                                    <source :src="selected_file.path" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div v-else-if="fileIs(selected_file, 'zip')">
+                                <i class="voyager-archive"></i>
+                            </div>
+                            <div v-else-if="fileIs(selected_file, 'folder')">
+                                <i class="voyager-folder"></i>
+                            </div>
+                            <div v-else>
+                                <i class="voyager-file-text"></i>
+                            </div>
+                        </div>
+                        <div class="detail_info">
+                            <span>
+                                <h4>Title:</h4>
+                                <input v-if="allowRename" type="text" class="form-control" :value="selected_file.name" @keydown.enter.prevent="renameFile">
+                                <p v-else>{ selected_file.name }</p>
+                            </span>
+                            <span>
+                                <h4>Type:</h4>
+                                <p>{ selected_file.type }</p>
+                            </span>
+
+                            <template v-if="!fileIs(selected_file, 'folder')">
+                                <span>
+                                    <h4>Size:</h4>
+                                    <p><span class="selected_file_size">{bytesToSize(selected_file.size) }</span></p>
+                                </span>
+                                <span>
+                                    <h4>Public URL:</h4>
+                                    <p><a :href="selected_file.path" target="_blank">Click Here</a></p>
+                                </span>
+                                <span>
+                                    <h4>Last Modified:</h4>
+                                    <p>{ dateFilter(selected_file.last_modified) }</p>
+                                </span>
+                            </template>
+
+                            <span v-if="fileIs(selected_file, 'image') && selected_file.thumbnails.length > 0">
+                                <h4>Thumbnails</h4><br>
+                                <ul>
+                                    <li v-for="thumbnail in selected_file.thumbnails">
+                                        <a :href="thumbnail.path" target="_blank">
+                                            { thumbnail.thumb_name }
+                                        </a>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                    <div v-else class="right_none_selected">
+                        <i class="voyager-cursor"></i>
+                        <p>No file or folder selected</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal fade" :id="'imagemodal_'+this._uid" v-if="selected_file && fileIs(selected_file, 'image')">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img :src="selected_file.path" class="img img-responsive" style="margin: 0 auto;">
+                </div>
+
+                <div class="modal-footer text-left">
+                    <small class="image-title">{ selected_file.name }</small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Image Modal -->
+
+    <!-- New Folder Modal -->
+    <div class="modal fade modal-info" :id="'create_dir_modal_'+this._uid">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="voyager-folder"></i> Add New Folder</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input name="new_folder_name" placeholder="New Folder Name" class="form-control" value="" v-model="modals.new_folder.name" />
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-info" v-on:click="createFolder">Create New Folder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End New Folder Modal -->
+
+    <!-- Delete File Modal -->
+    <div class="modal fade modal-danger" :id="'confirm_delete_modal_'+this._uid" v-if="allowDelete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="voyager-warning"></i> Are you sure</h4>
+                </div>
+
+                <div class="modal-body">
+                    <h4>Are you sure you want to delete the following file(s)?</h4>
+                    <ul>
+                        <li v-for="file in selected_files">{ file.name }</li>
+                    </ul>
+                    <h5 class="folder_warning">
+                        <i class="voyager-warning"></i> Deleting a folder will remove all files and folders contained inside
+                    </h5>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" v-on:click="deleteFiles">Yes, Delete it!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Delete File Modal -->
+
+    <!-- Move Files Modal -->
+    <div class="modal fade modal-warning" :id="'move_files_modal_'+this._uid" v-if="allowMove">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="voyager-move"></i> Move File/Folder</h4>
+                </div>
+
+                <div class="modal-body">
+                    <h4>Destination Folder</h4>
+                    <select class="form-control" v-model="modals.move_files.destination">
+                        <option value="" disabled>Destination Folder</option>
+                        <option v-if="current_folder != basePath && showFolders" value="/../">../</option>
+                        <option v-for="file in files" v-if="file.type == 'folder' && !selected_files.includes(file)" :value="current_folder+'/'+file.name">{ file.name }</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning" v-on:click="moveFiles">Move</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Move File Modal -->
+
+    <!-- Crop Image Modal -->
+    <div class="modal fade modal-warning" :id="'crop_modal_'+this._uid" v-if="allowCrop">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Crop Image</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="crop-container">
+                        <img :id="'cropping-image_'+this._uid" v-if="selected_files.length == 1 && fileIs(selected_file, 'image')" class="img img-responsive" :src="selected_file.path + '?' + selected_file.last_modified" />
+                    </div>
+                    <div class="new-image-info">
+                        Width:  <span :id="'new-image-width_'+this._uid"></span>, Height: <span :id="'new-image-height_'+this._uid"></span>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning" v-on:click="crop(false)">Crop</button>
+                    <button type="button" class="btn btn-warning" v-on:click="crop(true)">Crop &amp; Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Crop Image Modal -->
+</div>
+`,
+        props: {
+            basePath: {
+                type: String,
+                default: '/'
+            },
+            filename: {
+                type: String,
+                default: null
+            },
+            allowMultiSelect: {
+                type: Boolean,
+                default: true
+            },
+            maxSelectedFiles: {
+                type: Number,
+                default: 0
+            },
+            minSelectedFiles: {
+                type: Number,
+                default: 0
+            },
+            showFolders: {
+                type: Boolean,
+                default: true
+            },
+            showToolbar: {
+                type: Boolean,
+                default: true
+            },
+            allowUpload: {
+                type: Boolean,
+                default: true
+            },
+            allowMove: {
+                type: Boolean,
+                default: true
+            },
+            allowDelete: {
+                type: Boolean,
+                default: true
+            },
+            allowCreateFolder: {
+                type: Boolean,
+                default: true
+            },
+            allowRename: {
+                type: Boolean,
+                default: true
+            },
+            allowCrop: {
+                type: Boolean,
+                default: true
+            },
+            allowedTypes: {
+                type: Array,
+                default: function() {
+                    return [];
+                }
+            },
+            preSelect: {
+                type: Boolean,
+                default: true,
+            },
+            element: {
+                type: String,
+                default: ""
+            },
+            details: {
+                type: Object,
+                default: function() {
+                    return {};
+                }
+            },
+            expanded: {
+                type: Boolean,
+                default: true,
+            },
+        },
+        data: function() {
+            return {
+                current_folder: this.basePath,
+		  		selected_files: [],
+                files: [],
+		  		is_loading: true,
+                hidden_element: null,
+                isExpanded: this.expanded,
+                modals: {
+                    new_folder: {
+                        name: ''
+                    },
+                    move_files: {
+                        destination: ''
+                    }
+                }
+            };
+        },
+        computed: {
+            selected_file: function() {
+                return this.selected_files[0];
+            }
+        },
+        methods: {
+            getFiles: function() {
+                var vm = this;
+                vm.is_loading = true;
+                $.post('static/admin/media/files', { folder: vm.current_folder, _token: 'YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d', details: vm.details }, function(data) {
+                    vm.files = [];
+                    for (var i = 0, file; file = data[i]; i++) {
+                        if (vm.filter(file)) {
+                            vm.files.push(file);
+                        }
+                    }
+                    vm.selected_files = [];
+                    if (vm.preSelect && data.length > 0) {
+                        vm.selected_files.push(data[0]);
+                    }
+					vm.is_loading = false;
+				});
+            },
+            selectFile: function(file, e) {
+                if ((!e.ctrlKey && !e.metaKey && !e.shiftKey) || !this.allowMultiSelect) {
+                    this.selected_files = [];
+                }
+
+                if (e.shiftKey && this.allowMultiSelect && this.selected_files.length == 1) {
+                    var index = null;
+                    var start = 0;
+                    for (var i = 0, cfile; cfile = this.files[i]; i++) {
+                        if (cfile === this.selected_file) {
+                            start = i;
+                            break;
+                        }
+                    }
+
+                    var end = 0;
+                    for (var i = 0, cfile; cfile = this.files[i]; i++) {
+                        if (cfile === file) {
+                            end = i;
+                            break;
+                        }
+                    }
+
+                    for (var i = start; i < end; i++) {
+                        index = this.selected_files.indexOf(this.files[i]);
+                        if (index === -1) {
+                            this.selected_files.push(this.files[i]);
+                        }
+                    }
+                }
+
+                index = this.selected_files.indexOf(file);
+                if (index === -1) {
+                    this.selected_files.push(file);
+                }
+
+                if (this.selected_files.length == 1) {
+                    var vm = this;
+                    Vue.nextTick(function () {
+                        if (vm.fileIs(vm.selected_file, 'video')) {
+                            vm.$refs.videoplayer.load();
+                        } else if (vm.fileIs(vm.selected_file, 'audio')) {
+                            vm.$refs.audioplayer.load();
+                        }
+                    });
+                }
+            },
+            openFile: function(file) {
+                if (file.type == 'folder') {
+                    this.current_folder += file.name+"/";
+                    this.getFiles();
+                } else if (this.hidden_element) {
+                    this.addFileToInput(file);
+                } else {
+                    if (this.fileIs(this.selected_file, 'image')) {
+                        $('#imagemodal_' + this._uid).modal('show');
+                    } else {
+                        // ...
+                    }
+                }
+            },
+            isFileSelected: function(file) {
+                return this.selected_files.includes(file);
+            },
+            fileIs: function(file, type) {
+                if (typeof file === 'string') {
+                    if (type == 'image') {
+                        return this.endsWithAny(['jpg', 'jpeg', 'png', 'bmp'], file.toLowerCase());
+                    }
+                    //Todo: add other types
+                } else {
+                    return file.type.includes(type);
+                }
+
+                return false;
+			},
+            getCurrentPath: function() {
+                var path = this.current_folder.replace(this.basePath, '').split('/').filter(function (el) {
+                    return el != '';
+                });
+
+                return path;
+            },
+            setCurrentPath: function(i) {
+                if (i == -1) {
+                    this.current_folder = this.basePath;
+                } else {
+                    var path = this.getCurrentPath();
+                    path.length = i + 1;
+                    this.current_folder = this.basePath+path.join('/') + '/';
+                }
+
+                this.getFiles();
+            },
+            filter: function(file) {
+                if (this.allowedTypes.length > 0) {
+                    if (file.type != 'folder') {
+                        for (var i = 0, type; type = this.allowedTypes[i]; i++) {
+                            if (file.type.includes(type)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+
+                if (file.type == 'folder' && this.showFolders) {
+                    return true;
+                } else if (file.type == 'folder' && !this.showFolders) {
+                    return false;
+                }
+                if (this.allowedTypes.length == 0) {
+                    return true;
+                }
+
+                return false;
+            },
+            addFileToInput: function(file) {
+                if (file.type != 'folder') {
+                    if (!this.allowMultiSelect) {
+                        this.hidden_element.value = file.relative_path;
+                    } else {
+                        var content = JSON.parse(this.hidden_element.value);
+                        if (content.indexOf(file.relative_path) !== -1) {
+                            return;
+                        }
+                        if (content.length >= this.maxSelectedFiles && this.maxSelectedFiles > 0) {
+                            var msg_sing = "You can only select one file";
+                            var msg_plur = "You can only select a maximum of 2 files";
+                            if (this.maxSelectedFiles == 1) {
+                                toastr.error(msg_sing);
+                            } else {
+                                toastr.error(msg_plur.replace('2', this.maxSelectedFiles));
+                            }
+                        } else {
+                            content.push(file.relative_path);
+                            this.hidden_element.value = JSON.stringify(content);
+                        }
+                    }
+                    this.$forceUpdate();
+                }
+            },
+            removeFileFromInput: function(path) {
+                if (this.allowMultiSelect) {
+                    var content = JSON.parse(this.hidden_element.value);
+                    if (content.indexOf(path) !== -1) {
+                        content.splice(content.indexOf(path), 1);
+                        this.hidden_element.value = JSON.stringify(content);
+                        this.$forceUpdate();
+                    }
+                } else {
+                    this.hidden_element.value = '';
+                }
+            },
+            getSelectedFiles: function() {
+                if (!this.allowMultiSelect) {
+                    var content = [];
+                    if (this.hidden_element.value != '') {
+                        content.push(this.hidden_element.value);
+                    }
+
+                    return content;
+                } else {
+                    return JSON.parse(this.hidden_element.value);
+                }
+            },
+            renameFile: function(object) {
+                var vm = this;
+                if (!this.allowRename || vm.selected_file.name == object.target.value) {
+                    return;
+                }
+                $.post('static/admin/media/rename_file', {
+                    folder_location: vm.current_folder,
+                    filename: vm.selected_file.name,
+                    new_filename: object.target.value,
+                    _token: 'YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d'
+                }, function(data){
+					if (data.success == true) {
+						toastr.success('Successfully renamed file/folder', "Sweet Success!");
+						vm.getFiles();
+					} else {
+						toastr.error(data.error, "Whoopsie!");
+					}
+				});
+            },
+            createFolder: function(e) {
+                if (!this.allowCreateFolder) {
+                    return;
+                }
+                var vm = this;
+                var name = this.modals.new_folder.name;
+                $.post('static/admin/media/new_folder', { new_folder: vm.current_folder+'/'+name, _token: 'YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d' }, function(data) {
+					if(data.success == true){
+						toastr.success('Successfully created ' + name, "Sweet Success!");
+						vm.getFiles();
+					} else {
+						toastr.error(data.error, "Whoopsie!");
+					}
+                    vm.modals.new_folder.name = '';
+					$('#create_dir_modal_'+vm._uid).modal('hide');
+				});
+            },
+            deleteFiles: function() {
+                if (!this.allowDelete) {
+                    return;
+                }
+                var vm = this;
+                $.post('static/admin/media/delete_file_folder', {
+                    path: vm.current_folder,
+                    files: vm.selected_files,
+                    _token: 'YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d'
+                }, function(data){
+					if(data.success == true){
+						toastr.success('', "Sweet Success!");
+						vm.getFiles();
+						$('#confirm_delete_modal_'+vm._uid).modal('hide');
+					} else {
+						toastr.error(data.error, "Whoopsie!");
+                        vm.getFiles();
+						$('#confirm_delete_modal_'+vm._uid).modal('hide');
+					}
+				});
+            },
+            moveFiles: function(e) {
+                if (!this.allowMove) {
+                    return;
+                }
+                var vm = this;
+                var destination = this.modals.move_files.destination;
+                if (destination === '') {
+                    return;
+                }
+                $('#move_files_modal_'+vm._uid).modal('hide');
+				$.post('static/admin/media/move_file', {
+                    path: vm.current_folder,
+                    files: vm.selected_files,
+                    destination: destination,
+                    _token: 'YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d'
+                }, function(data){
+					if(data.success == true){
+						toastr.success('Successfully moved file/folder', "Sweet Success!");
+						vm.getFiles();
+					} else {
+						toastr.error(data.error, "Whoopsie!");
+					}
+
+                    vm.modals.move_files.destination = '';
+				});
+            },
+            crop: function(mode) {
+                if (!this.allowCrop) {
+                    return;
+                }
+                if (!mode) {
+                    if (!window.confirm('It will override the original image, are you sure?')) {
+						return;
+					}
+                }
+
+                croppedData.originImageName = this.selected_file.name;
+				croppedData.upload_path = this.current_folder;
+				croppedData.createMode = mode;
+
+                var vm = this;
+                var postData = Object.assign(croppedData, { _token: 'YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d' });
+				$.post('static/admin/media/crop', postData, function(data) {
+					if (data.success) {
+						toastr.success(data.message);
+						vm.getFiles();
+						$('#crop_modal_'+vm._uid).modal('hide');
+					} else {
+						toastr.error(data.error, "Whoopsie!");
+					}
+				});
+            },
+            addSelectedFiles: function () {
+                var vm = this;
+                for (i = 0; i < vm.selected_files.length; i++) {
+                    vm.openFile(vm.selected_files[i]);
+                }
+            },
+            bytesToSize: function(bytes) {
+				var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+				if (bytes == 0) return '0 Bytes';
+				var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+				return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+			},
+            getFileName: function(name) {
+                var name = name.split('/');
+                return name[name.length -1];
+            },
+            imgIcon: function(path) {
+                path = path.replace(/\\/g,"/");
+				return 'background-size: cover; background-image: url("' + path + '"); background-repeat:no-repeat; background-position:center center;display:inline-block; width:100%; height:100%;';
+			},
+            dateFilter: function(date) {
+                if (!date) {
+                    return null;
+                }
+                var date = new Date(date * 1000);
+
+                var month = "0" + (date.getMonth() + 1);
+                var minutes = "0" + date.getMinutes();
+                var seconds = "0" + date.getSeconds();
+
+                var dateFormated = date.getFullYear() + '-' + month.substr(-2) + '-' + date.getDate() + ' ' + date.getHours() + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+                return dateFormated;
+            },
+            endsWithAny: function(suffixes, string) {
+                return suffixes.some(function (suffix) {
+                    return string.endsWith(suffix);
+                });
+            }
+        },
+        mounted: function() {
+            this.getFiles();
+            var vm = this;
+
+            if (this.element != '') {
+                this.hidden_element = document.querySelector(this.element);
+                if (!this.hidden_element) {
+                    console.error('Element "'+this.element+'" could not be found.');
+                } else {
+                    if (this.maxSelectedFiles > 1 && this.hidden_element.value == '') {
+                        this.hidden_element.value = '[]';
+                    }
+                }
+            }
+
+            //Key events
+            this.onkeydown = function(evt) {
+                evt = evt || window.event;
+                if (evt.keyCode == 39) {
+                    evt.preventDefault();
+                    for (var i = 0, file; file = vm.files[i]; i++) {
+                        if (file === vm.selected_file) {
+                            i = i + 1; // increase i by one
+                            i = i % vm.files.length;
+                            vm.selectFile(vm.files[i], evt);
+                            break;
+                        }
+                    }
+                } else if (evt.keyCode == 37) {
+                    evt.preventDefault();
+                    for (var i = 0, file; file = vm.files[i]; i++) {
+                        if (file === vm.selected_file) {
+                            if (i === 0) {
+                                i = vm.files.length;
+                            }
+                            i = i - 1;
+                            vm.selectFile(vm.files[i], evt);
+                            break;
+                        }
+                    }
+                } else if (evt.keyCode == 13) {
+                    evt.preventDefault();
+                    if (evt.target.tagName != 'INPUT') {
+                        vm.openFile(vm.selected_file, null);
+                    }
+                }
+            };
+            //Dropzone
+            var dropzone = $(vm.$el).first().find('#upload').first();
+            var progress = $(vm.$el).first().find('#uploadProgress').first();
+            var progress_bar = $(vm.$el).first().find('#uploadProgress .progress-bar').first();
+            if (this.allowUpload && !dropzone.hasClass('dz-clickable')) {
+                dropzone.dropzone({
+                    timeout: 180000,
+                    url: 'static/admin/media/upload',
+                    previewsContainer: "#uploadPreview",
+                    totaluploadprogress: function(uploadProgress, totalBytes, totalBytesSent) {
+                        progress_bar.css('width', uploadProgress + '%');
+    					if (uploadProgress == 100) {
+    						progress.delay(1500).slideUp(function(){
+    							progress_bar.css('width', '0%');
+    						});
+    					}
+                    },
+                    processing: function(){
+                        progress.fadeIn();
+                    },
+                    sending: function(file, xhr, formData) {
+                        formData.append("_token", 'YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d');
+                        formData.append("upload_path", vm.current_folder);
+                        formData.append("filename", vm.filename);
+                        formData.append("details", JSON.stringify(vm.details));
+                    },
+                    success: function(e, res) {
+                        if (res.success) {
+                            toastr.success(res.message, "Sweet Success!");
+                        } else {
+                            toastr.error(res.message, "Whoopsie!");
+                        }
+                    },
+                    error: function(e, res, xhr) {
+                        toastr.error(res, "Whoopsie!");
+                    },
+                    queuecomplete: function() {
+                        vm.getFiles();
+                    }
+                });
+            }
+
+            //Cropper
+            if (this.allowCrop) {
+                var cropper = $(vm.$el).first().find('#crop_modal_'+vm._uid).first();
+                cropper.on('shown.bs.modal', function (e) {
+                    if (typeof cropper !== 'undefined' && cropper instanceof Cropper) {
+    					cropper.destroy();
+    				}
+    				var croppingImage = document.getElementById('cropping-image_'+vm._uid);
+    				cropper = new Cropper(croppingImage, {
+    					crop: function(e) {
+    						document.getElementById('new-image-width_'+vm._uid).innerText = Math.round(e.detail.width) + 'px';
+    						document.getElementById('new-image-height_'+vm._uid).innerText = Math.round(e.detail.height) + 'px';
+    						croppedData = {
+    							x: Math.round(e.detail.x),
+    							y: Math.round(e.detail.y),
+    							height: Math.round(e.detail.height),
+    							width: Math.round(e.detail.width)
+    						};
+    					}
+    				});
+    			});
+            }
+
+            $(document).ready(function () {
+                $(".form-edit-add").submit(function (e) {
+                    if (vm.hidden_element) {
+                        if (vm.maxSelectedFiles > 1) {
+                            var content = JSON.parse(vm.hidden_element.value);
+                            if (content.length < vm.minSelectedFiles) {
+                                e.preventDefault();
+                                var msg_sing = "You must select at least one file";
+                                var msg_plur = "You must select at least 2 files";
+                                if (vm.minSelectedFiles == 1) {
+                                    toastr.error(msg_sing);
+                                } else {
+                                    toastr.error(msg_plur.replace('2', vm.minSelectedFiles));
+                                }
+                            }
+                        } else {
+                            if (vm.minSelectedFiles > 0 && vm.hidden_element.value == '') {
+                                e.preventDefault();
+                                toastr.error("You must select at least one file");
+                            }
+                        }
+                    }
+                });
+
+                //Nestable
+                $('#dd_'+vm._uid).nestable({
+                    maxDepth: 1,
+                    handleClass: 'file_link',
+                    collapseBtnHTML: '',
+                    expandBtnHTML: '',
+                    callback: function(l, e) {
+                        if (vm.allowMultiSelect) {
+                            var new_content = [];
+                            var object = $('#dd_'+vm._uid).nestable('serialize');
+                            for (var key in object) {
+                                new_content.push(object[key].url);
+                            }
+                            vm.hidden_element.value = JSON.stringify(new_content);
+                        }
+                    }
+                });
+
+                $('#create_dir_modal_' + vm._uid).on('hidden.bs.modal', function () {
+                    vm.modals.new_folder.name = '';
+                });
+
+                $('#move_files_modal_' + vm._uid).on('hidden.bs.modal', function () {
+                    vm.modals.move_files.destination = '';
+                });
+            });
+        },
+    });
+</script>
+<style>
+.dd-placeholder {
+    flex: 1;
+    width: 100%;
+    min-width: 200px;
+    max-width: 250px;
+}
+</style>
+
+    
+<script src="https://kit.fontawesome.com/c63faa1f51.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script  type="text/javascript">
+    var ctvChart = document.getElementById('xwrslqbzefpmgcyunidahjvok').getContext('2d');
+    function xwrslqbzefpmgcyunidahjvok_create(data) {
+        xwrslqbzefpmgcyunidahjvok_rendered = true;
+        document.getElementById("xwrslqbzefpmgcyunidahjvok_loader").style.display = 'none';
+        document.getElementById("xwrslqbzefpmgcyunidahjvok").style.display = 'block';
+        window.xwrslqbzefpmgcyunidahjvok = new Chart(document.getElementById("xwrslqbzefpmgcyunidahjvok").getContext("2d"), {
+            type: data[0].type,
+            data: {
+                labels: ["Daily Meditation Classes","Global Marketing Conferen...","VR assistant Workshop","Caribbean Karaoke Nights","Funday Sunday Swimming Cl...","Italian Cooking Class (Se...","Regular Yoga Classes (Sea...","Professional Piano Lesson...","Regular Fitness Classes (...","Winter Wine Night"],
+                datasets: data
+            },
+            options: {"maintainAspectRatio":false,"scales":{"xAxes":[],"yAxes":[{"ticks":{"beginAtZero":true}}]}},
+            plugins: []
+        });
+    }
+    let xwrslqbzefpmgcyunidahjvok_rendered = false;
+let xwrslqbzefpmgcyunidahjvok_load = function () {
+    if (document.getElementById("xwrslqbzefpmgcyunidahjvok") && !xwrslqbzefpmgcyunidahjvok_rendered) {
+                    xwrslqbzefpmgcyunidahjvok_create([{"borderWidth":2,"borderColor":"rgba(27, 137, 239, 1)","backgroundColor":"rgba(26, 136, 239, 0.7)","data":["281","124","117","116","111","110","94","93","55","54"],"label":"Total Bookings","type":"bar"}])
+            }
+};
+window.addEventListener("load", xwrslqbzefpmgcyunidahjvok_load);
+document.addEventListener("turbolinks:load", xwrslqbzefpmgcyunidahjvok_load);
+
+</script>
+
+
+    <script>
+        var url = "https:\/\/eventmie-pro-demo.classiebit.com\/static/admin\/sales\/report"
+        var token = "YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d"
+        var isOrgDash = false
+
+        function sales_report(ticket_id = null) {
+
+            export_sales_report();
+
+            $('#sales_report').DataTable({
+                processing: true,
+                serverSide: true,
+                searching: false,
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ],
+
+                ajax: {
+                    url: "https:\/\/eventmie-pro-demo.classiebit.com\/admin\/sales\/report",
+                    type: 'POST',
+                    data: {
+                        _token: "YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d",
+                        event_id: document.getElementById("event_id").value,
+                        ticket: ticket_id,
+
+                    },
+                },
+
+                columns: [
+
+                    {
+                        data: 'order_number',
+                        name: 'order_number',
+                        render: function(data, type, row) {
+                            return '<small class="text-bold">' + row.order_number + '</small>';
+                        }
+                    },
+                    {
+                        data: 'event_title',
+                        name: 'event_title',
+                        render: function(data, type, row) {
+                            return '<small class="text-bold">' + row.event_title + '</small>';
+                        }
+                    },
+                    {
+                        data: 'event_start_date',
+                        name: 'event_start_date',
+                        render: function(data, type, row) {
+                            return row.event_start_date + ' - <p>' + row.event_end_date + '</p>';
+                        }
+                    },
+                    {
+                        data: 'customer_name',
+                        name: 'customer_name',
+                        render: function(data, type, row) {
+                            return row.customer_name + ' <p>(' + row.customer_email + ')</p>';
+                        }
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at',
+                        render: function(data, type, row) {
+
+                            return moment(row.created_at, 'YYYY-MM-DD').format('DD MMM YYYY');
+                        }
+                    },
+                    {
+                        data: 'checked_in',
+                        name: 'checked_in',
+                        render: function(data, type, row) {
+                            return row.checked_in > 0 ? "Yes" + " (" + row.checked_in + "/" +
+                                row.quantity + ")" : "No"
+                        }
+                    },
+                    {
+                        data: 'ticket_price',
+                        name: 'ticket_price',
+                        render: function(data, type, row) {
+                            return row.ticket_price + ' ' + row.currency + '<p>(' + row.ticket_title +
+                                '<strong class="text-bold"> X ' + row.quantity + '</strong>' + ')</p>';
+                        }
+                    },
+                    {
+                        data: 'net_price',
+                        name: 'net_price',
+                        render: function(data, type, row) {
+                            return row.net_price + ' ' + row.currency
+                        }
+                    },
+                    {
+                        data: 'name',
+                        name: 'name',
+                        render: function(data, type, row) {
+                            return row.name + ' <p>(' + row.email + ')</p>';
+                        }
+                    },
+                    {
+                        data: 'organiser_earning',
+                        name: 'organiser_earning',
+                        render: function(data, type, row) {
+                            return (row.organiser_earning ? row.organiser_earning : 0) + ' ' + row.currency;
+                        }
+                    },
+                    {
+                        data: 'admin_commission',
+                        name: 'admin_commission',
+                        render: function(data, type, row) {
+                            return (row.admin_commission ? row.admin_commission : 0) + ' ' + row.currency;
+                        }
+                    },
+                    {
+                        data: 'admin_tax',
+                        name: 'admin_tax',
+                        render: function(data, type, row) {
+                            return (row.admin_tax ? row.admin_tax : 0) + ' ' + row.currency;
+                        }
+                    },
+
+                    {
+                        data: 'transferred',
+                        name: 'transferred',
+                        render: function(data, type, row) {
+                            return (row.transferred <= 0 && row.organiser_earning > 0) ?
+                                "Pending" : "Transferred";
+                        }
+                    },
+                ],
+
+                footerCallback: function(row, data, start, end, display) {
+                    var currency = data.length > 0 ? data[0].currency : '';
+                    var api = this.api(),
+                        data;
+                    // converting to interger to find total
+                    var intVal = function(i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                            i : 0;
+                    };
+
+                    // computing column Total of the complete result 
+                    var total_ticket_price = api
+                        .column(6)
+                        .data()
+                        .reduce(function(a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer by showing the total with the reference of the column index 
+                    var msg = "Total";
+                    $(api.column(0).footer()).html(msg);
+                    $(api.column(6).footer()).html(total_ticket_price.toFixed(2) + ' ' + currency);
+
+
+                    // computing column Total of the complete result 
+                    var customer_paid = api
+                        .column(7)
+                        .data()
+                        .reduce(function(a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer by showing the total with the reference of the column index 
+                    $(api.column(7).footer()).html(customer_paid.toFixed(2) + ' ' + currency);
+
+                    // computing column Total of the complete result 
+                    var organiser_earning = api
+                        .column(9)
+                        .data()
+                        .reduce(function(a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer by showing the total with the reference of the column index 
+                    $(api.column(9).footer()).html(organiser_earning.toFixed(2) + ' ' + currency);
+
+
+                    // computing column Total of the complete result 
+                    var admin_commission = api
+                        .column(10)
+                        .data()
+                        .reduce(function(a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer by showing the total with the reference of the column index 
+                    $(api.column(10).footer()).html(admin_commission.toFixed(2) + ' ' + currency);
+
+                    // computing column Total of the complete result 
+                    var admin_tax = api
+                        .column(11)
+                        .data()
+                        .reduce(function(a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+
+                    // Update footer by showing the total with the reference of the column index 
+                    $(api.column(11).footer()).html(admin_tax.toFixed(2) + ' ' + currency);
+
+                },
+
+                drawCallback: function(settings) {
+                    window.sales_report_data = settings.json.data;
+
+                }
+            });
+
+        }
+
+        function export_sales_report(ticket_id = null) {
+
+            // set event_id for export event sale report           
+            document.getElementById("export_event_id").value = document.getElementById("event_id").value;
+
+            // disable button if not selected event
+            document.getElementById("export_button").disabled = parseInt(document.getElementById("event_id").value) > 0 ?
+                false : true;
+            if (parseInt(document.getElementById("event_id").value) > 0) {
+                document.getElementById("export_button").classList.add("btn-primary");
+            } else {
+                document.getElementById("export_button").classList.remove("btn-primary");
+            }
+
+            // hide seach by ticket if not selected event
+            document.getElementById("ticket").style.display = parseInt(document.getElementById("event_id").value) > 0 ?
+                'block' : 'none';
+
+            document.getElementById("ticket_id").value = ticket_id;
+
+            document.getElementById("ticket_lable").style.display = parseInt(document.getElementById("event_id").value) >
+                0 ? 'block' : 'none';
+
+
+        }
+
+        function events_total_by_sales_price() {
+
+            $('#event_total').DataTable({
+                processing: true,
+                serverSide: true,
+                searching: false,
+                lengthMenu: [
+                    [10, 25, 50, 'all'],
+                    [10, 25, 50, "All"]
+                ],
+
+                ajax: {
+                    url: "https:\/\/eventmie-pro-demo.classiebit.com\/admin\/event\/total\/sales_price",
+                    type: 'POST',
+                    data: {
+                        _token: "YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d",
+                        event_id: document.getElementById("event_id_ticket_stats").value
+
+                    },
+                },
+
+                columns: [
+
+                    {
+                        data: 'title',
+                        name: 'title',
+                        render: function(data, type, row) {
+                            return '<small class="text-bold">' + row.title + '</small>';
+                        }
+                    },
+
+                    {
+                        data: 'tickets.',
+                        name: 'tickets',
+                        orderable: false
+                    },
+                    {
+                        data: 'tickets_quantity',
+                        name: 'tickets_quantity',
+                        orderable: false
+                    },
+                    {
+                        data: 'total_price',
+                        name: 'total_price',
+                        orderable: false
+                    }
+
+                ],
+
+                footerCallback: function(row, data, start, end, display) {
+                    var currency = data.length > 0 ? data[0].currency : '';
+                    var api = this.api(),
+                        data;
+                    // converting to interger to find total
+                    var intVal = function(i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                            i : 0;
+                    };
+                },
+
+                drawCallback: function(settings) {
+                    var all = settings.json.recordsTotal;
+
+                    $('select[name^="event_total_length"] option[value="all"]').attr("value", all)
+                }
+            });
+
+        }
+
+        function getEvent() {
+            var url = "https:\/\/eventmie-pro-demo.classiebit.com\/admin\/get\/event"
+
+            $.ajax(url, {
+
+                type: 'POST', // http method
+                data: {
+                    _token: "YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d",
+                    event_id: document.getElementById("event_id").value,
+
+                }, // data to submit
+                success: function(res, status, xhr) { // success callback function
+
+                    if (res.status) {
+
+                        $('#ticket').empty();
+
+                        var mySelect = $('#ticket');
+
+                        mySelect.append(
+                            $('<option></option>').val("All").html(
+                                "All")
+                        );
+
+                        $.each(res.event.tickets, function(key, val) {
+
+                            mySelect.append(
+                                $('<option></option>').val(val.id).html(val.title)
+                            );
+                        });
+                    }
+                }
+            });
+        }
+
+
+        // event sales reports
+        $('#event_id').change(function() {
+            $('#sales_report').DataTable().destroy();
+            $('#event_total').DataTable().destroy();
+
+            sales_report();
+            events_total_by_sales_price();
+            getEvent();
+        });
+
+        // filter by ticket
+        $('#ticket').change(function() {
+            let ticket = document.getElementById("ticket");
+            let ticket_id = ticket.options[ticket.selectedIndex].value;
+
+            $('#sales_report').DataTable().destroy();
+            $('#event_total').DataTable().destroy();
+
+            sales_report(ticket_id);
+            events_total_by_sales_price();
+            export_sales_report(ticket_id);
+        });
+
+        // event tickets stats
+        $('#event_id_ticket_stats').change(function() {
+            $('#event_total').DataTable().destroy();
+
+            events_total_by_sales_price();
+        });
+
+        // call fucntion
+
+        /* Only Admin */
+        if (!isOrgDash) {
+            sales_report();
+        }
+
+        events_total_by_sales_price();
+        
+    </script>
+
+</body>
+</html>

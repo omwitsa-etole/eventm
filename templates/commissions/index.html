@@ -1,0 +1,107 @@
+{%extends 'admin.html'%}
+
+{%block content%}
+
+<div class="container-fluid">
+    <div class="side-body padding-top">
+            <div class="container-fluid">
+<h1 class="page-title">
+    <i class="voyager-calendar"></i> Commissions
+</h1>
+
+    </div>
+        <div id="voyager-notifications"></div>
+        <div class="page-content browse container-fluid">
+            <div class="alerts">
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-bordered">
+                        <div class="panel-body">
+                           
+                            <div class="table-responsive">
+                                <table id="dataTable" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Organiser</th>
+                                            <th>Total Bookings</th>
+                                            <th>Admin Commission</th>
+                                            <th>Admin Tax</th>
+                                            <th>Organiser Earning</th>
+                                            <th class="actions text-right">Actions</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                                                                                        <tr>
+                                                <td>Josh Grey</td>
+                                                <td>197.90 USD</td>
+                                                <td>9.90 USD</td>
+                                                <td>4.80 USD</td>
+                                                <td>188.01 USD</td>
+                                                
+                                                <td class="no-sort no-click" id="bread-actions">
+                                                    
+                                                    <a href="/admin/commissions/6" class="btn btn-sm btn-warning pull-right view">
+                                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <td>Gina White</td>
+                                                <td>5030.70 USD</td>
+                                                <td>261.62 USD</td>
+                                                <td>52.50 USD</td>
+                                                <td>4769.24 USD</td>
+                                                
+                                                <td class="no-sort no-click" id="bread-actions">
+                                                    
+                                                    <a href="/admin/commissions/7" class="btn btn-sm btn-warning pull-right view">
+                                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <td>Katie Stone</td>
+                                                <td>138263.15 USD</td>
+                                                <td>2946.38 USD</td>
+                                                <td>3250.50 USD</td>
+                                                <td>135316.97 USD</td>
+                                                
+                                                <td class="no-sort no-click" id="bread-actions">
+                                                    
+                                                    <a href="/admin/commissions/8" class="btn btn-sm btn-warning pull-right view">
+                                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <td>Tony Ray</td>
+                                                <td>93589.10 USD</td>
+                                                <td>1750.84 USD</td>
+                                                <td>2479.20 USD</td>
+                                                <td>91838.45 USD</td>
+                                                
+                                                <td class="no-sort no-click" id="bread-actions">
+                                                    
+                                                    <a href="/admin/commissions/9" class="btn btn-sm btn-warning pull-right view">
+                                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                                                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{%endblock%}

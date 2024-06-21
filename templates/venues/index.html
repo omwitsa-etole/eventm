@@ -1,0 +1,445 @@
+
+
+{%extends 'admin.html'%}
+
+{%block content%}
+
+<div class="container-fluid">
+    <div class="side-body padding-top">
+            <div class="container-fluid">
+<h1 class="page-title">
+    <i class="voyager-lighthouse"></i> Venues
+</h1>
+            <a href="/admin/venues/create" class="btn btn-success btn-add-new">
+        <i class="voyager-plus"></i> <span>Add New</span>
+    </a>
+                    <a class="btn btn-danger" id="bulk_delete_btn"><i class="voyager-trash"></i> <span>Bulk Delete</span></a>
+
+
+<!-- /.modal -->
+
+<script>
+window.onload = function () {
+// Bulk delete selectors
+var $bulkDeleteBtn = $('#bulk_delete_btn');
+var $bulkDeleteModal = $('#bulk_delete_modal');
+var $bulkDeleteCount = $('#bulk_delete_count');
+var $bulkDeleteDisplayName = $('#bulk_delete_display_name');
+var $bulkDeleteInput = $('#bulk_delete_input');
+// Reposition modal to prevent z-index issues
+$bulkDeleteModal.appendTo('body');
+// Bulk delete listener
+$bulkDeleteBtn.click(function () {
+var ids = [];
+var $checkedBoxes = $('#dataTable input[type=checkbox]:checked').not('.select_all');
+var count = $checkedBoxes.length;
+if (count) {
+    // Reset input value
+    $bulkDeleteInput.val('');
+    // Deletion info
+    var displayName = count > 1 ? 'Venues' : 'Venue';
+    displayName = displayName.toLowerCase();
+    $bulkDeleteCount.html(count);
+    $bulkDeleteDisplayName.html(displayName);
+    // Gather IDs
+    $.each($checkedBoxes, function () {
+        var value = $(this).val();
+        ids.push(value);
+    })
+    // Set input value
+    $bulkDeleteInput.val(ids);
+    // Show modal
+    $bulkDeleteModal.modal('show');
+} else {
+    // No row selected
+    toastr.warning('You haven&#039;t selected anything to delete');
+}
+});
+}
+</script>
+                                    <a href="/admin/venues/order" class="btn btn-primary btn-add-new">
+            <i class="voyager-list"></i> <span>Order</span>
+        </a>
+                                                                                                                                            </div>
+        <div id="voyager-notifications"></div>
+            <div class="page-content browse container-fluid">
+<div class="alerts">
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-bordered">
+            <div class="panel-body">
+                                            <form method="get" class="form-search">
+                        <div id="search-input">
+                            <div class="col-2">
+                                <select id="search_key" name="key" data-select2-id="search_key" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                                                                                    <option value="id">Id</option>
+                                                                                    <option value="title" selected="" data-select2-id="2">Title</option>
+                                                                                    <option value="venue_type">Venue Type</option>
+                                                                                    <option value="show_quoteform">Show Quotation Form</option>
+                                                                                    <option value="status">Status</option>
+                                                                                    <option value="updated_at">Updated At</option>
+                                                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 163px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-search_key-container"><span class="select2-selection__rendered" id="select2-search_key-container" role="textbox" aria-readonly="true" title="Title">Title</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                            <div class="col-2">
+                                <select id="filter" name="filter" data-select2-id="filter" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                                    <option value="contains" data-select2-id="4">contains</option>
+                                    <option value="equals">=</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="3" style="width: 100px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-filter-container"><span class="select2-selection__rendered" id="select2-filter-container" role="textbox" aria-readonly="true" title="contains">contains</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control" placeholder="Search" name="s" value="">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="submit">
+                                        <i class="voyager-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                                                    </form>
+                                        <div class="table-responsive">
+                    <table id="dataTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                                                            <th class="dt-not-orderable">
+                                        <input type="checkbox" class="select_all">
+                                    </th>
+                                                                                                                <th>
+                                                                                    <a href="/admin/venues?sort_order=desc&amp;order_by=id">
+                                                                                Id
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/venues?sort_order=desc&amp;order_by=title">
+                                                                                Title
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/venues?sort_order=desc&amp;order_by=venue_type">
+                                                                                Venue Type
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/venues?sort_order=desc&amp;order_by=show_quoteform">
+                                                                                Show Quotation Form
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/venues?sort_order=desc&amp;order_by=status">
+                                                                                Status
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/venues?sort_order=asc&amp;order_by=updated_at">
+                                                                                Updated At
+                                                                                                                                                                                                <i class="voyager-angle-down pull-right"></i>
+                                                                                                                                            </a>
+                                                                            </th>
+                                                                        <th class="actions text-right dt-not-orderable">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_2" value="2">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>2</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Frances Show Town</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Cinema</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-29 08:41:03
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click bread-actions">
+                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="2" id="delete-2">
+        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+    </a>
+                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/venues/2/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+    </a>
+                                                                                                                                                                                                    <a href="/admin/venues/2" title="View" class="btn btn-sm btn-warning pull-right view">
+        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+    </a>
+                                                                                                                                        </td>
+                            </tr>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_7" value="7">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>7</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Metro Glam Max</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Stadium</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-29 08:40:43
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click bread-actions">
+                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="7" id="delete-7">
+        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+    </a>
+                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/venues/7/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+    </a>
+                                                                                                                                                                                                    <a href="/admin/venues/7" title="View" class="btn btn-sm btn-warning pull-right view">
+        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+    </a>
+                                                                                                                                        </td>
+                            </tr>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_8" value="8">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>8</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Australia Grand Hawk View</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Cinema</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-29 08:40:25
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click bread-actions">
+                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="8" id="delete-8">
+        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+    </a>
+                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/venues/8/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+    </a>
+                                                                                                                                                                                                    <a href="/admin/venues/8" title="View" class="btn btn-sm btn-warning pull-right view">
+        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+    </a>
+                                                                                                                                        </td>
+                            </tr>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_5" value="5">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>5</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Luxe Grand View</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Cinema</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-29 08:40:02
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click bread-actions">
+                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="5" id="delete-5">
+        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+    </a>
+                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/venues/5/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+    </a>
+                                                                                                                                                                                                    <a href="/admin/venues/5" title="View" class="btn btn-sm btn-warning pull-right view">
+        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+    </a>
+                                                                                                                                        </td>
+                            </tr>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_6" value="6">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>6</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Lemme Valley Hall</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Cinema</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-29 08:39:50
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click bread-actions">
+                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="6" id="delete-6">
+        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+    </a>
+                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/venues/6/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+    </a>
+                                                                                                                                                                                                    <a href="/admin/venues/6" title="View" class="btn btn-sm btn-warning pull-right view">
+        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+    </a>
+                                                                                                                                        </td>
+                            </tr>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_3" value="3">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>3</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Italy Street Show</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Stadium</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-29 08:39:27
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click bread-actions">
+                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="3" id="delete-3">
+        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+    </a>
+                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/venues/3/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+    </a>
+                                                                                                                                                                                                    <a href="/admin/venues/3" title="View" class="btn btn-sm btn-warning pull-right view">
+        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+    </a>
+                                                                                                                                        </td>
+                            </tr>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_4" value="4">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>4</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Los Pepe Fsuion</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Cinema</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-29 08:39:15
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click bread-actions">
+                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="4" id="delete-4">
+        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+    </a>
+                    <a href="/admin/venues/4/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+    </a>
+        <a href="/admin/venues/4" title="View" class="btn btn-sm btn-warning pull-right view">
+        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+    </a>
+                                                                                                                                        </td>
+                            </tr>
+                                                            </tbody>
+                    </table>
+                </div>
+                                            <div class="pull-left">
+                        <div role="status" class="show-res" aria-live="polite">Showing 1 to 7 of 7 entries</div>
+                    </div>
+                    <div class="pull-right">
+                        
+                    </div>
+                                    </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete this venue?</h4>
+        </div>
+        <div class="modal-footer">
+            <form action="#" id="delete_form" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="Eg6OmmUcVUSCkozFQ0aLelfXW7MBTznF30ONwYm0">
+                <input type="submit" class="btn btn-danger pull-right delete-confirm" value="Yes, Delete it!">
+            </form>
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    </div>
+</div>
+
+{%endblock%}

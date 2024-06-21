@@ -1,0 +1,227 @@
+{%extends 'admin.html'%}
+
+
+{%block content%}
+
+<div class="container-fluid">
+    <div class="side-body padding-top">
+            <h1 class="page-title">
+<i class="voyager-puzzle"></i>
+Add Tag
+</h1>
+            <div id="voyager-notifications"></div>
+            <div class="page-content edit-add container-fluid">
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="panel panel-bordered">
+            <!-- form start -->
+            <form role="form" class="form-edit-add" action="/admin/tags" method="POST" enctype="multipart/form-data">
+                <!-- PUT Method if we are editing -->
+                
+                <!-- CSRF TOKEN -->
+                <input type="hidden" name="_token" value="mToa9Jv0w7qPtzCluYCSxLVPCaqnBt7UYZPqK8TZ">
+
+                <div class="panel-body">
+
+                    
+                    <!-- Adding / Editing -->
+                    
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Organizer</label>
+                                                                                                        <select class="form-control" name="organizer_id" required="">
+    <option value="">None</option>
+
+    <option value="6">
+    Josh Grey ( joshgrey@mail.com )
+</option>
+    <option value="7">
+    Gina White ( ginawhite@mail.com )
+</option>
+    <option value="8">
+    Katie Stone ( katiestone@mail.com )
+</option>
+    <option value="9">
+    Tony Ray ( tonyray@mail.com )
+</option>
+</select>
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Image</label>
+                                                                                                        <input type="file" name="image" accept="image/*">
+
+                            
+                                                                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-html="true" title="" data-original-title="upload image of size 512x512 pixels."></span>
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Title</label>
+                                                                                                        <input required="" type="text" class="form-control" name="title" placeholder="e.g John Doe" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Type</label>
+                                                                                                        <input required="" type="text" class="form-control" name="type" placeholder="e.g speaker" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Sub Title</label>
+                                                                                                        <input type="text" class="form-control" name="sub_title" placeholder="e.g Business coach &amp; Entrepreneur" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Website</label>
+                                                                                                        <input type="text" class="form-control" name="website" placeholder="e.g http://example.com" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Profile Page</label>
+                                <select class="form-control select2" name="is_page" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                    <option value="0" selected="selected" data-select2-id="3">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                        </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Description</label>
+                                        <textarea class="form-control richTextBox" name="description" id="richtextdescription" style="display: ;" aria-hidden="true">    
+                                        </textarea>
+                                                                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-html="true" title="" data-original-title="Fill this only if you selected Is Page - Yes"></span>
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Phone</label>
+                                                                                                        <input type="text" class="form-control" name="phone" placeholder="Fill this only if you selected Is Page - Yes" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Email</label>
+                                                                                                        <input type="text" class="form-control" name="email" placeholder="Fill this only if you selected Is Page - Yes" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Facebook</label>
+                                                                                                        <input type="text" class="form-control" name="facebook" placeholder="Fill this only if you selected Is Page - Yes" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Instagram</label>
+                                                                                                        <input type="text" class="form-control" name="instagram" placeholder="Fill this only if you selected Is Page - Yes" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Twitter</label>
+                                                                                                        <input type="text" class="form-control" name="twitter" placeholder="Fill this only if you selected Is Page - Yes" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Linkedin</label>
+                                                                                                        <input type="text" class="form-control" name="linkedin" placeholder="Fill this only if you selected Is Page - Yes" value="">
+
+                            
+                                                                                                </div>
+                                                    <!-- GET THE DISPLAY OPTIONS -->
+                                                        
+                        <div class="form-group  col-md-12 ">
+                            
+                            <label class="control-label" for="name">Status</label>
+                                <select class="form-control select2 select2-hidden-accessible" name="status" data-select2-id="4" tabindex="-1" aria-hidden="true">
+                                    <option value="0">Disabled</option>
+                                    <option value="1" selected="selected" data-select2-id="6">Enabled</option>
+                                </select>
+
+                      </div>
+                    
+                </div><!-- panel-body -->
+
+                <div class="panel-footer">
+                                                                                <button type="submit" class="btn btn-primary save">Save</button>
+                                            </div>
+            </form>
+
+            <iframe id="form_target" name="form_target" style="display:none"></iframe>
+            <form id="my_form" action="/admin/upload" target="form_target" method="post" enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+                <input name="image" id="upload_file" type="file" onchange="$('#my_form').submit();this.value='';">
+                <input type="hidden" name="type_slug" id="type_slug" value="tags">
+                <input type="hidden" name="_token" value="mToa9Jv0w7qPtzCluYCSxLVPCaqnBt7UYZPqK8TZ">
+            </form>
+
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade modal-danger" id="confirm_delete_modal">
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title"><i class="voyager-warning"></i> Are you sure</h4>
+        </div>
+
+        <div class="modal-body">
+            <h4>Are you sure you want to delete '<span class="confirm_delete_name"></span>'</h4>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" id="confirm_delete">Yes, Delete it!</button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Delete File Modal -->
+    </div>
+</div>
+
+{%endblock%}

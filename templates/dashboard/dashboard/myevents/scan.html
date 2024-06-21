@@ -1,0 +1,58 @@
+{%extends 'dashboard/dashboard/myevents/manage.html'%}
+
+{%block content%}
+<div id="page-content-for-mini" class="bg-light">
+
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 py-1 mt-2">
+                    <button type="button" id="nav-toggle" onclick="clickToggle()" class="btn btn-sm bg-secondary rounded-circle">
+                        <i class="fas fa-bars text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div> 
+        <section>
+            <div class="py-2 bg-light">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12"></div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card border-0 shadow-sm">
+                                <h1 class="fw-bold h2 pt-3 ps-3"> Scan Ticket</h1> 
+                                <div>
+                                    <div>
+                                        <div class="alert alert-info"><h5><i class="fas fa-qrcode"></i> Scan Ticket</h5></div>
+                                    </div> 
+                                    <div class="alert alert-danger">
+                                        <i class="fas fa-camera"></i> Camera not detected!
+                                    </div> 
+                                    <div data-v-7a81005d="" class="qrcode-stream-wrapper">
+                                        <video data-v-7a81005d="" autoplay="autoplay" muted="muted" playsinline="" class="qrcode-stream-camera" style="display: none;"></video>
+                                        <canvas data-v-7a81005d="" class="qrcode-stream-camera"></canvas>
+                                        <canvas data-v-7a81005d="" class="qrcode-stream-overlay"></canvas>
+                                        <div data-v-7a81005d="" class="qrcode-stream-overlay"></div>
+                                    </div>
+                                </div> 
+                                <form id="form" action="/dashboard/ticket-scan/verify-ticket" method="POST" enctype="multipart/form-data" class="lgx-contactform">
+                                    <input type="hidden" name="_token" value="gS0BFTCiWE39mJmVeN9z04GajJP6JHScHyNLR9pY"> 
+                                    <input type="hidden" name="booking_id" id="booking_id">
+                                    <input type="hidden" name="order_number" id="order_number"> 
+                                    <div class="d-grid">
+                                        <button type="submit" id="check_in_button" class="btn btn-success btn-lg" style="display: none;">Verify &amp; Check-in</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
+
+
+{%endblock%}

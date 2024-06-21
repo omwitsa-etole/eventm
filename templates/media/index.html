@@ -1,0 +1,41 @@
+
+
+{%extends 'admin.html'%}
+
+{%block content%}
+
+<div class="container-fluid">
+    <div class="side-body padding-top">
+                        <div id="voyager-notifications"></div>
+            <div class="page-content container-fluid">
+<div class="alerts">
+</div>
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="admin-section-title">
+            <h3><i class="voyager-images"></i> Media</h3>
+        </div>
+        <div class="clear"></div>
+        <div id="filemanager"><div><!----> <!----> <div id="toolbar" style="display: block;"><div class="btn-group offset-right"><button type="button" id="upload" class="btn btn-primary dz-clickable"><i class="voyager-upload"></i>
+        Upload
+    </button> <button type="button" data-toggle="modal" data-target="#create_dir_modal_3" class="btn btn-primary"><i class="voyager-folder"></i>
+        Add Folder
+    </button></div> <button type="button" class="btn btn-default"><i class="voyager-refresh"></i></button> <div class="btn-group offset-right"><!----> <button type="button" data-toggle="modal" data-target="#move_files_modal_3" class="btn btn-default"><i class="voyager-move"></i>
+        Move
+    </button> <button type="button" data-toggle="modal" data-target="#confirm_delete_modal_3" class="btn btn-default"><i class="voyager-trash"></i>
+        Delete
+    </button> <button type="button" data-toggle="modal" data-target="#crop_modal_3" class="btn btn-default" disabled="disabled"><i class="voyager-crop"></i>
+        Crop
+    </button></div></div> <div id="uploadPreview" style="display: none;"></div> <div id="uploadProgress" class="progress active progress-striped"><div class="progress-bar progress-bar-success" style="width: 0px;"></div></div> <div id="content" style="display: block;"><div class="breadcrumb-container"><ol class="breadcrumb filemanager"><li class="media_breadcrumb"><span class="arrow"></span> <strong>Media Library</strong></li> </ol></div> <div class="flex"><div id="left"><ul id="files"><li><div class="file_link selected"><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>banners</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>categories</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>events</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>posts</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>qrcodes</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>settings</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>tags</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>ticketpdfs</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>users</h4> <!----></div></div></div></li><li><div class="file_link "><div class="link_icon"><i class="icon voyager-folder"></i></div> <div class="details"><div class="folder"><h4>venues</h4> <!----></div></div></div></li></ul> <!----> <!----></div> <div id="right"><div class="right_details"><div class="right_details"><div class="detail_img"><div><i class="voyager-folder"></i></div></div> <div class="detail_info"><span><h4>Title:</h4> <input type="text" class="form-control"></span> <span><h4>Type:</h4> <p>folder</p></span> <!----> <!----></div></div></div></div></div></div> <!----> <div id="create_dir_modal_3" class="modal fade modal-info"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button> <h4 class="modal-title"><i class="voyager-folder"></i> Add New Folder</h4></div> <div class="modal-body"><input name="new_folder_name" placeholder="New Folder Name" value="" class="form-control"></div> <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button> <button type="button" class="btn btn-info">Create New Folder
+            </button></div></div></div></div> <div id="confirm_delete_modal_3" class="modal fade modal-danger"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button> <h4 class="modal-title"><i class="voyager-warning"></i> Are you sure</h4></div> <div class="modal-body"><h4>Are you sure you want to delete the following file(s)?</h4> <ul><li>banners</li></ul> <h5 class="folder_warning"><i class="voyager-warning"></i> Deleting a folder will remove all files and folders contained inside
+            </h5></div> <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button> <button type="button" class="btn btn-danger">Yes, Delete it!
+            </button></div></div></div></div> <div id="move_files_modal_3" class="modal fade modal-warning" style="display: none;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button> <h4 class="modal-title"><i class="voyager-move"></i> Move File/Folder</h4></div> <div class="modal-body"><h4>Destination Folder</h4> <select class="form-control"><option value="" disabled="disabled">Destination Folder</option> <!----> <!----><option value="//categories">categories</option><option value="//events">events</option><option value="//posts">posts</option><option value="//qrcodes">qrcodes</option><option value="//settings">settings</option><option value="//tags">tags</option><option value="//ticketpdfs">ticketpdfs</option><option value="//users">users</option><option value="//venues">venues</option></select></div> <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button> <button type="button" class="btn btn-warning">Move</button></div></div></div></div> <div id="crop_modal_3" class="modal fade modal-warning"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button> <h4 class="modal-title">Crop Image</h4></div> <div class="modal-body"><div class="crop-container"><!----></div> <div class="new-image-info">
+                Width:  <span id="new-image-width_3"></span>, Height: <span id="new-image-height_3"></span></div></div> <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button> <button type="button" class="btn btn-warning">Crop</button> <button type="button" class="btn btn-warning">Crop &amp; Create</button></div></div></div></div></div></div>
+    </div><!-- .row -->
+</div><!-- .col-md-12 -->
+</div><!-- .page-content container-fluid -->
+    </div>
+</div>
+
+{%endblock%}

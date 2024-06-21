@@ -1,0 +1,383 @@
+{%extends 'admin.html'%}
+
+{%block content%}
+
+<div class="container-fluid">
+    <div class="side-body padding-top">
+            <div class="container-fluid">
+<h1 class="page-title">
+    <i class="voyager-calendar"></i> Events
+</h1>
+<a href="/admin/events/create" class="btn btn-success btn-add-new">
+    <i class="voyager-plus"></i> <span>Add New</span>
+</a>
+    </div>
+        <div id="voyager-notifications"></div>
+            <div class="page-content browse container-fluid">
+<div class="alerts">
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-bordered">
+            <div class="panel-body">
+                                            <form method="get" class="form-search">
+                        <div id="search-input">
+                            <div class="col-2">
+                                <select id="search_key" name="key">
+                                                                                    <option value="id" >Id</option>
+                                                                                    <option value="title" selected>Title</option>
+                                                                                    <option value="description" >Description</option>
+                                                                                    <option value="faq" >Faq</option>
+                                                                                    <option value="thumbnail" >Thumbnail</option>
+                                                                                    <option value="poster" >Poster</option>
+                                                                                    <option value="images" >Images</option>
+                                                                                    <option value="video_link" >Video Link</option>
+                                                                                    <option value="venue" >Venue</option>
+                                                                                    <option value="address" >Address</option>
+                                                                                    <option value="city" >City</option>
+                                                                                    <option value="state" >State</option>
+                                                                                    <option value="zipcode" >Zipcode</option>
+                                                                                    <option value="country_id" >Country Id</option>
+                                                                                    <option value="start_date" >Start Date</option>
+                                                                                    <option value="end_date" >End Date</option>
+                                                                                    <option value="start_time" >Start Time</option>
+                                                                                    <option value="end_time" >End Time</option>
+                                                                                    <option value="repetitive" >Repetitive</option>
+                                                                                    <option value="featured" >Featured</option>
+                                                                                    <option value="status" >Status</option>
+                                                                                    <option value="meta_title" >Meta Title</option>
+                                                                                    <option value="meta_keywords" >Meta Keywords</option>
+                                                                                    <option value="meta_description" >Meta Description</option>
+                                                                                    <option value="category_id" >Category Id</option>
+                                                                                    <option value="user_id" >User Id</option>
+                                                                                    <option value="add_to_facebook" >Add To Facebook</option>
+                                                                                    <option value="created_at" >Created At</option>
+                                                                                    <option value="updated_at" >Updated At</option>
+                                                                                    <option value="slug" >Slug</option>
+                                                                                    <option value="price_type" >Price Type</option>
+                                                                                    <option value="latitude" >Latitude</option>
+                                                                                    <option value="longitude" >Longitude</option>
+                                                                                    <option value="item_sku" >Item Sku</option>
+                                                                                    <option value="publish" >Publish</option>
+                                                                                    <option value="is_publishable" >Is Publishable</option>
+                                                                                    <option value="merge_schedule" >Payment Frequency</option>
+                                                                                    <option value="online_location" >Online Location</option>
+                                                                                    <option value="excerpt" >Excerpt</option>
+                                                                                    <option value="offline_payment_info" >Offline Payment Info</option>
+                                                                            </select>
+                            </div>
+                            <div class="col-2">
+                                <select id="filter" name="filter">
+                                    <option value="contains" >contains</option>
+                                    <option value="equals" >=</option>
+                                </select>
+                            </div>
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control" placeholder="Search" name="s" value="">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="submit">
+                                        <i class="voyager-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                                                    </form>
+                                        <div class="table-responsive">
+                    <table id="dataTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                                                            <th>
+                                        <input type="checkbox" class="select_all">
+                                    </th>
+                                                                                                                <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=title">
+                                                                                Title
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=event_belongsto_category_relationship">
+                                                                                Category
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=event_hasone_user_relationship">
+                                                                                Organiser
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=start_date">
+                                                                                Start Date
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=end_date">
+                                                                                End Date
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=repetitive">
+                                                                                Repetitive
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=featured">
+                                                                                Featured
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=publish">
+                                                                                Publish
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=status">
+                                                                                Status
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=desc&amp;order_by=merge_schedule">
+                                                                                Payment Frequency
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/events?sort_order=asc&amp;order_by=updated_at">
+                                                                                Updated At
+                                                                                                                                                                                                <i class="voyager-angle-down pull-right"></i>
+                                                                                                                                            </a>
+                                                                            </th>
+                                                                        <th class="actions text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                    <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_5" value="5">
+                                    </td>
+                                                                                                                                                                <td>
+                                        
+                                                                                                                                                            <div>Winter Wine Night</div>
+                                            
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                            <p>Food &amp; Drink</p>
+        
+    
+
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                            <p>Katie Stone</p>
+        
+    
+
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-01
+                                                                                                                                        </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-12-31
+                                                                                                                                        </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Published
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Full Advance
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-29 08:15:37
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click" id="bread-actions">
+                                    
+                                    <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger delete pull-right" onclick='openDeleteModal("5")'>
+                                        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+                                    </a>
+                                    
+
+                                    <a href="/dashboard/myevents/manage/winter-wine-night" class="btn btn-sm btn-primary edit pull-right">
+                                        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+                                    </a>
+
+                                                                                <a href="/events/winter-wine-night" class="btn btn-sm btn-warning pull-right">
+                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                    </a>
+                                     
+                                    
+                                    <a class="btn btn-sm btn-success pull-right " class="btn lgx-btn lgx-btn-black lgx-btn-sm btn-block" href="/dashboard/myevents/export_attendees/winter-wine-night"><i class="voyager-receipt"></i> Export Attendees (18)</a>
+                                    
+                                    <div class="modal modal-danger fade" tabindex="-1" id="delete_modal5" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete this event?</h4>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="/dashboard/myevents/delete/winter-wine-night" id="delete_form" method="GET">
+                                                        <input type="hidden" name="_token" value="JNhkaFqTlbmAB9upwWsqgpWzCRbNNBYscpO9DHH7">
+                                                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="Yes, Delete it!">
+                                                    </form>
+                                                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+                                
+                                </td>
+                            </tr>
+                                                                    
+                         <tr>
+                                 <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_13" value="13">
+                                    </td>
+                                                                                                                                                                <td>
+                                        
+                                                                                                                                                            <div>Professional Piano Lessons (Seasonal Pass)</div>
+                                            
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                            <p>Education &amp; Classes</p>
+        
+    
+
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                            <p>Tony Ray</p>
+        
+    
+
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-07-01
+                                                                                                                                        </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-12-15
+                                                                                                                                        </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Yes
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Published
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Enabled
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                        
+                                            Monthly/Weekly
+
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2023-11-29 10:19:01
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click" id="bread-actions">
+                                    
+                                    <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger delete pull-right" onclick='openDeleteModal("13")'>
+                                        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+                                    </a>
+                                    
+
+                                    <a href="/dashboard/myevents/manage/professional-piano-lessons-seasonal-pass" class="btn btn-sm btn-primary edit pull-right">
+                                        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+                                    </a>
+
+                                                                                <a href="/events/professional-piano-lessons-seasonal-pass" class="btn btn-sm btn-warning pull-right">
+                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                    </a>
+                                     
+                                    
+                                    <a class="btn btn-sm btn-success pull-right " class="btn lgx-btn lgx-btn-black lgx-btn-sm btn-block" href="/dashboard/myevents/export_attendees/professional-piano-lessons-seasonal-pass"><i class="voyager-receipt"></i> Export Attendees (24)</a>
+                                    
+                                    <div class="modal modal-danger fade" tabindex="-1" id="delete_modal13" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete this event?</h4>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="/dashboard/myevents/delete/professional-piano-lessons-seasonal-pass" id="delete_form" method="GET">
+                                                        <input type="hidden" name="_token" value="JNhkaFqTlbmAB9upwWsqgpWzCRbNNBYscpO9DHH7">
+                                                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="Yes, Delete it!">
+                                                    </form>
+                                                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+                                
+                                </td>
+                            </tr>
+                                                            </tbody>
+                    </table>
+                </div>
+                                            <div class="pull-left">
+                        <div role="status" class="show-res" aria-live="polite">Showing 1 to 15 of 17 entries</div>
+                    </div>
+                    <div class="pull-right">
+                        <nav>
+<ul class="pagination">
+    
+                    <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+            <span class="page-link" aria-hidden="true">&lsaquo;</span>
+        </li>
+    
+    
+                    
+        
+        
+                                                                                <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                                                                        <li class="page-item"><a class="page-link" href="/admin/events?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=2">2</a></li>
+                                                                
+    
+                    <li class="page-item">
+            <a class="page-link" href="/admin/events?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+        </li>
+            </ul>
+</nav>
+
+                    </div>
+                                    </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+    </div>
+</div>
+
+{%endblock%}

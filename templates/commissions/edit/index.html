@@ -1,0 +1,278 @@
+{%extends 'admin.html'%}
+
+{%block content%}
+
+<div class="container-fluid">
+            <div class="side-body padding-top">
+                    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 mb-0">
+                <h1 class="page-title">
+                    <i class="voyager-wallet"></i> Commissions
+                </h1>
+            </div>
+            <div class="col-md-6 mb-0">
+                <a href="javascript:;" onclick="openBankModal()" title="Organizer Bank Details" class="btn btn-primary pull-right mt-2" data-id="bank-modal" id="bank-modal">
+                    <i class="voyager-lighthouse"></i> <span class="hidden-xs hidden-sm">Organizer Bank Details</span>
+                </a>
+                
+                <div class="modal modal-primary fade" tabindex="-1" id="bank_modal" role="dialog" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title"><i class="voyager-lighthouse"></i> Organizer Bank Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <td>Organiser</td>
+                                            <th>Josh Grey (joshgrey@mail.com)</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Organisation</td>
+                                            <th>Josh Corp.</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bank Name</td>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bank Code</td>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bank Branch Name</td>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bank Branch Code</td>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bank Account Number</td>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bank Account Name</td>
+                                            <th></th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bank Account Phone</td>
+                                            <th></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+            </div>
+                <div id="voyager-notifications"></div>
+                    <div class="page-content browse container-fluid">
+        <div class="alerts">
+    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-bordered">
+                    <div class="panel-body">
+                        <h3>Payouts</h3>
+                        <h5>Organizer Earnings needs to be transferred to Organizer</h5>
+                        <br>
+                        <div class="table-responsive">
+                            <table id="dataTable" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Event</th>
+                                        <th>Organiser</th>
+                                        <th>Total Bookings</th>
+                                        <th>Admin Commission</th>
+                                        <th>Admin Tax</th>
+                                        <th>Organiser Earning</th>
+                                        <th>Month Year</th>
+                                        <th>Transferred</th>
+                                        <th class="actions text-right">Actions</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                                                                        <form method="POST" action="https://eventmie-pro-demo.classiebit.com/commission/update" class="form-search"></form>
+                                                <input type="hidden" name="_token" value="Eg6OmmUcVUSCkozFQ0aLelfXW7MBTznF30ONwYm0">
+                                                <tr>
+                                                <input type="hidden" class="form-control" name="month_year" value="11 2019">
+                                                <input type="hidden" class="form-control" name="organiser_id" value="6">
+                                                <input type="hidden" class="form-control" name="event_id" value="7">
+                                                        
+                                                    <td>Product Marketing Workshop</td>
+                                                    <td>Josh Grey</td>
+                                                    <td>21.00 USD</td>
+                                                    <td>1.05 USD</td>
+                                                    <td>0.00 USD</td>
+                                                    <td>19.95 USD</td>
+                                                    <td>11 2019</td>
+                                                    <td>  
+                                                        <div class="form-check">
+                                                            <input type="checkbox" name="transferred" class="form-check-input" checked="">
+                                                        </div>
+                                                    </td>
+                                                    <td class="no-sort no-click" id="bread-actions">
+
+                                                        <button type="submit" class="btn btn-sm btn-primary     pull-right view">
+                                                            <i class="voyager-edit"></i>
+                                                             <span class="hidden-xs hidden-sm">
+                                                                Update
+                                                            </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            
+
+                                                                                    <form method="POST" action="https://eventmie-pro-demo.classiebit.com/commission/update" class="form-search"></form>
+                                                <input type="hidden" name="_token" value="Eg6OmmUcVUSCkozFQ0aLelfXW7MBTznF30ONwYm0">
+                                                <tr>
+                                                <input type="hidden" class="form-control" name="month_year" value="10 2020">
+                                                <input type="hidden" class="form-control" name="organiser_id" value="6">
+                                                <input type="hidden" class="form-control" name="event_id" value="7">
+                                                        
+                                                    <td>Product Marketing Workshop</td>
+                                                    <td>Josh Grey</td>
+                                                    <td>155.90 USD</td>
+                                                    <td>7.80 USD</td>
+                                                    <td>4.20 USD</td>
+                                                    <td>148.11 USD</td>
+                                                    <td>10 2020</td>
+                                                    <td>  
+                                                        <div class="form-check">
+                                                            <input type="checkbox" name="transferred" class="form-check-input">
+                                                        </div>
+                                                    </td>
+                                                    <td class="no-sort no-click" id="bread-actions">
+
+                                                        <button type="submit" class="btn btn-sm btn-primary     pull-right view">
+                                                            <i class="voyager-edit"></i>
+                                                             <span class="hidden-xs hidden-sm">
+                                                                Update
+                                                            </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            
+
+                                                                                    <form method="POST" action="https://eventmie-pro-demo.classiebit.com/commission/update" class="form-search"></form>
+                                                <input type="hidden" name="_token" value="Eg6OmmUcVUSCkozFQ0aLelfXW7MBTznF30ONwYm0">
+                                                <tr>
+                                                <input type="hidden" class="form-control" name="month_year" value="10 2020">
+                                                <input type="hidden" class="form-control" name="organiser_id" value="6">
+                                                <input type="hidden" class="form-control" name="event_id" value="7">
+                                                        
+                                                    <td>Product Marketing Workshop</td>
+                                                    <td>Josh Grey</td>
+                                                    <td>21.00 USD</td>
+                                                    <td>1.05 USD</td>
+                                                    <td>0.60 USD</td>
+                                                    <td>19.95 USD</td>
+                                                    <td>10 2020</td>
+                                                    <td>  
+                                                        <div class="form-check">
+                                                            <input type="checkbox" name="transferred" class="form-check-input" checked="">
+                                                        </div>
+                                                    </td>
+                                                    <td class="no-sort no-click" id="bread-actions">
+
+                                                        <button type="submit" class="btn btn-sm btn-primary     pull-right view">
+                                                            <i class="voyager-edit"></i>
+                                                             <span class="hidden-xs hidden-sm">
+                                                                Update
+                                                            </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            
+
+                                                                                
+                                </tbody>
+                            </table>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-bordered">
+                    <div class="panel-body">
+                        <h3>Refunds</h3>
+                        <h5>Organizer Earnings needs to be claimed back from Organizer</h5>
+                        <br>
+                        <div class="table-responsive">
+                            <table id="dataTable" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Event</th>
+                                        <th>Organiser</th>
+                                        <th>Total Bookings</th>
+                                        <th>Admin Commission</th>
+                                        <th>Admin Tax</th>
+                                        <th>Organiser Earning</th>
+                                        <th>Month Year</th>
+                                        <th>Settlement</th>
+                                        <th class="actions text-right">Actions</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                                                                        <form method="POST" action="https://eventmie-pro-demo.classiebit.com/commission/settlement_update" class="form-search"></form>
+                                                <input type="hidden" name="_token" value="Eg6OmmUcVUSCkozFQ0aLelfXW7MBTznF30ONwYm0">
+                                                <tr>
+                                                <input type="hidden" class="form-control" name="month_year" value="11 2019">
+                                                <input type="hidden" class="form-control" name="organiser_id" value="6">
+                                                <input type="hidden" class="form-control" name="event_id" value="7">
+                                                        
+                                                    <td>Product Marketing Workshop</td>
+                                                    <td>Josh Grey</td>
+                                                    <td>112.50 USD</td>
+                                                    <td>5.62 USD</td>
+                                                    <td>0.00 USD</td>
+                                                    <td>-106.88 USD</td>
+                                                    <td>11 2019</td>
+                                                    <td>  
+                                                        <div class="form-check">
+                                                            <input type="checkbox" name="settled" class="form-check-input">
+                                                        </div>
+                                                    </td>
+                                                    <td class="no-sort no-click" id="bread-actions">
+
+                                                        <button type="submit" class="btn btn-sm btn-primary     pull-right view">
+                                                            <i class="voyager-edit"></i>
+                                                             <span class="hidden-xs hidden-sm">
+                                                                Update
+                                                            </span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            
+                                                                                
+                                </tbody>
+                            </table>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+            </div>
+        </div>
+
+{%endblock%}

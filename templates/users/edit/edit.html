@@ -1,0 +1,363 @@
+
+
+{%extends 'admin.html'%}
+
+{%block content%}
+
+iv class="container-fluid">
+            <div class="side-body padding-top">
+                    <h1 class="page-title">
+        <i class="voyager-person"></i>
+        Edit User
+    </h1>
+                    <div id="voyager-notifications"></div>
+                    <div class="page-content edit-add container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-bordered">
+                    <!-- form start -->
+                    <form role="form"
+                            class="form-edit-add"
+                            action="/admin/users/1"
+                            method="POST" enctype="multipart/form-data">
+                        <!-- PUT Method if we are editing -->
+                                                    <input type="hidden" name="_method" value="PUT">
+                        
+                        <!-- CSRF TOKEN -->
+                        <input type="hidden" name="_token" value="YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d">
+
+                        <div class="panel-body">
+
+                            
+                            <!-- Adding / Editing -->
+                            
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Name</label>
+                                                                                                                <input  required  type="text" class="form-control" name="name"
+        placeholder="Name"
+       
+       value="Admin">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Email</label>
+                                                                                                                <input  required  type="text" class="form-control" name="email"
+        placeholder="Email"
+       
+       value="admin@admin.com">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Password</label>
+                                                                                                                <br>
+    <small>Leave empty to keep the same</small>
+<input type="password"
+              class="form-control"
+       name="password"
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Avatar</label>
+                                                                                                                <div data-field-name="avatar">
+        <a href="#" class="voyager-x remove-single-image" style="position:absolute;"></a>
+        <img src="/storage/users/November2023/e3tehT26jTdvzvjCl5dw.jpg"
+          data-file-name="users/November2023/e3tehT26jTdvzvjCl5dw.jpg" data-id="1"
+          style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
+    </div>
+<input  type="file" name="avatar" accept="image/*">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Role</label>
+                                                                                                                <select
+                    class="form-control select2-ajax" name="role_id"
+                    data-get-items-route="/admin/users/relation"
+                    data-get-items-field="user_belongsto_role_relationship"
+                     data-id="1"                     data-method="edit"
+                     required                 >
+                    
+                    
+                                            <option value="1"  selected="selected" >Administrator</option>
+                                    </select>
+
+            
+        
+    
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Roles</label>
+                                                                                                                <select
+                    class="form-control select2-ajax "
+                    name="user_belongstomany_role_relationship[]" multiple
+                    data-get-items-route="/admin/users/relation"
+                    data-get-items-field="user_belongstomany_role_relationship"
+                     data-id="1"                     data-method="edit"
+                                                        >
+
+                        
+                                                    <option value="">None</option>
+                        
+                        
+                </select>
+
+            
+        
+    
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Organisation</label>
+                                                                                                                <input  type="text" class="form-control" name="organisation"
+        placeholder="Organisation"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Bank Name</label>
+                                                                                                                <input  type="text" class="form-control" name="bank_name"
+        placeholder="Bank Name"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Bank Code</label>
+                                                                                                                <input  type="text" class="form-control" name="bank_code"
+        placeholder="Bank Code"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Bank Branch Name</label>
+                                                                                                                <input  type="text" class="form-control" name="bank_branch_name"
+        placeholder="Bank Branch Name"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Bank Branch Code</label>
+                                                                                                                <input  type="text" class="form-control" name="bank_branch_code"
+        placeholder="Bank Branch Code"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Bank Account Number</label>
+                                                                                                                <input  type="text" class="form-control" name="bank_account_number"
+        placeholder="Bank Account Number"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Bank Account Name</label>
+                                                                                                                <input  type="text" class="form-control" name="bank_account_name"
+        placeholder="Bank Account Name"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Bank Account Phone</label>
+                                                                                                                <input  type="text" class="form-control" name="bank_account_phone"
+        placeholder="Bank Account Phone"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Address</label>
+                                                                                                                <input  type="text" class="form-control" name="address"
+        placeholder="Address"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Phone</label>
+                                                                                                                <input  type="text" class="form-control" name="phone"
+        placeholder="Phone"
+       
+       value="">
+
+                                    
+                                                                                                        </div>
+                                                                
+                                                            <!-- GET THE DISPLAY OPTIONS -->
+                                                                
+                                
+                                
+                                                                <div class="form-group  col-md-12 " >
+                                    
+                                    <label class="control-label" for="name">Status</label>
+                                                                                                                <select class="form-control select2" name="status">
+                                            <option value="0"  >Disabled</option>
+                            <option value="1"   selected="selected" >Enabled</option>
+                        </select>
+
+                                    
+                                                                                                        </div>
+                                                                
+                            
+                        </div><!-- panel-body -->
+
+                        <div class="panel-footer">
+                                                                                        <button type="submit" class="btn btn-primary save">Save</button>
+                                                    </div>
+                    </form>
+
+                    <iframe id="form_target" name="form_target" style="display:none"></iframe>
+                    <form id="my_form" action="/admin/upload" target="form_target" method="post"
+                            enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+                        <input name="image" id="upload_file" type="file"
+                                 onchange="$('#my_form').submit();this.value='';">
+                        <input type="hidden" name="type_slug" id="type_slug" value="users">
+                        <input type="hidden" name="_token" value="YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-danger" id="confirm_delete_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="voyager-warning"></i> Are you sure</h4>
+                </div>
+
+                <div class="modal-body">
+                    <h4>Are you sure you want to delete '<span class="confirm_delete_name"></span>'</h4>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirm_delete">Yes, Delete it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Delete File Modal -->
+            </div>
+        </div>
+
+{%endblock%}

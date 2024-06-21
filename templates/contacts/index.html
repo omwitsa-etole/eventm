@@ -1,0 +1,197 @@
+
+{%extends 'admin.html'%}
+
+{%block content%}
+
+<div class="container-fluid">
+    <div class="side-body padding-top">
+            <div class="container-fluid">
+<h1 class="page-title">
+    <i class="voyager-mail"></i> Contacts
+</h1>
+
+    </div>
+        <div id="voyager-notifications"></div>
+            <div class="page-content browse container-fluid">
+<div class="alerts">
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-bordered">
+            <div class="panel-body">
+                                            <form method="get" class="form-search">
+                        <div id="search-input">
+                            <div class="col-2">
+                                <select id="search_key" name="key" data-select2-id="search_key" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                                                                                    <option value="id">Id</option>
+                                                                                    <option value="name" selected="" data-select2-id="2">Name</option>
+                                                                                    <option value="email">Email</option>
+                                                                                    <option value="title">Title</option>
+                                                                                    <option value="message">Message</option>
+                                                                                    <option value="read">Read</option>
+                                                                                    <option value="read_by">Read By</option>
+                                                                                    <option value="created_at">Created At</option>
+                                                                                    <option value="updated_at">Updated At</option>
+                                                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 96px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-search_key-container"><span class="select2-selection__rendered" id="select2-search_key-container" role="textbox" aria-readonly="true" title="Name">Name</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                            <div class="col-2">
+                                <select id="filter" name="filter" data-select2-id="filter" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                                    <option value="contains" data-select2-id="4">contains</option>
+                                    <option value="equals">=</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="3" style="width: 100px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-filter-container"><span class="select2-selection__rendered" id="select2-filter-container" role="textbox" aria-readonly="true" title="contains">contains</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control" placeholder="Search" name="s" value="">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="submit">
+                                        <i class="voyager-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                                                    </form>
+                                        <div class="table-responsive">
+                    <table id="dataTable" class="table table-hover">
+                        <thead>
+                            <tr>
+                                                                            <th>
+                                        <input type="checkbox" class="select_all">
+                                    </th>
+                                                                                                                <th>
+                                                                                    <a href="/admin/contacts?sort_order=desc&amp;order_by=name">
+                                                                                Name
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/contacts?sort_order=desc&amp;order_by=email">
+                                                                                Email
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/contacts?sort_order=desc&amp;order_by=title">
+                                                                                Title
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th>
+                                                                                    <a href="/admin/contacts?sort_order=desc&amp;order_by=created_at">
+                                                                                Created At
+                                                                                                                                    </a>
+                                                                            </th>
+                                                                        <th class="actions text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_2" value="2">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>John Doe</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>john@mail.com</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Eventmie Pro addons</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-11-14 10:27:04
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click" id="bread-actions">
+                                    
+                                    <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger delete pull-right" onclick="openDeleteModal(&quot;2&quot;)">
+                                        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+                                    </a>
+
+                                    <a href="/admin/contacts/2" class="btn btn-sm btn-warning view pull-right">
+                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                    </a>
+
+                                    
+                                    <div class="modal modal-danger fade" tabindex="-1" id="delete_modal2" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                    <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete this contact?</h4>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="/admin/contacts/2" id="delete_form" method="POST">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="_token" value="Eg6OmmUcVUSCkozFQ0aLelfXW7MBTznF30ONwYm0">
+                                                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="Yes, Delete it! contact">
+                                                    </form>
+                                                    
+                                                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+                                </td>
+                            </tr>
+                                                                <tr>
+                                                                            <td>
+                                        <input type="checkbox" name="row_id" id="checkbox_3" value="3">
+                                    </td>
+                                                                                                                                                                <td>
+                                                                                                                                                <div>Jane Smith</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>jane@mail.com</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                <div>Eventmie Pro Customisation</div>
+                                                                                    </td>
+                                                                                                                        <td>
+                                                                                                                                                    2024-01-18 10:10:44
+                                                                                                                                        </td>
+                                                                        <td class="no-sort no-click" id="bread-actions">
+                                    
+                                    <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger delete pull-right" onclick="openDeleteModal(&quot;3&quot;)">
+                                        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+                                    </a>
+
+                                    <a href="/admin/contacts/3" class="btn btn-sm btn-warning view pull-right">
+                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                    </a>
+
+                                    
+                                    <div class="modal modal-danger fade" tabindex="-1" id="delete_modal3" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                    <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete this contact?</h4>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="/admin/contacts/3" id="delete_form" method="POST">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="_token" value="Eg6OmmUcVUSCkozFQ0aLelfXW7MBTznF30ONwYm0">
+                                                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="Yes, Delete it! contact">
+                                                    </form>
+                                                    
+                                                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+                                </td>
+                            </tr>
+                                                            </tbody>
+                    </table>
+                </div>
+                                            <div class="pull-left">
+                        <div role="status" class="show-res" aria-live="polite">Showing 1 to 2 of 2 entries</div>
+                    </div>
+                    <div class="pull-right">
+                        
+                    </div>
+                                    </div>
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,400 @@
+
+{%extends 'admin.html'%}
+
+{%block content%}
+
+<div class="container-fluid">
+    <div class="side-body padding-top">
+            <h1 class="page-title">
+<i class="voyager-list"></i>Menu Builder (header)
+<div class="btn btn-success add_item"><i class="voyager-plus"></i> New Menu Item</div>
+</h1>
+<div class="language-selector">
+<div class="btn-group btn-group-sm" role="group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+            <input type="radio" name="i18n_selector" id="en" autocomplete="off" checked=&quot;checked&quot;> EN
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="ar" autocomplete="off"> AR
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="de" autocomplete="off"> DE
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="fr" autocomplete="off"> FR
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="es" autocomplete="off"> ES
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="hi" autocomplete="off"> HI
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="it" autocomplete="off"> IT
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="ja" autocomplete="off"> JA
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="nl" autocomplete="off"> NL
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="ru" autocomplete="off"> RU
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="zh_CN" autocomplete="off"> ZH_CN
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="zh_TW" autocomplete="off"> ZH_TW
+        </label>
+            </div>
+</div>
+        <div id="voyager-notifications"></div>
+            
+<div class="page-content container-fluid">
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-bordered">
+            <div class="panel-heading">
+                <p class="panel-title" style="color:#777">Drag and drop the menu Items below to re-arrange them.</p>
+            </div>
+
+            <div class="panel-body" style="padding:30px;">
+                <div class="dd">
+                    <ol class="dd-list">
+
+
+<li class="dd-item" data-id="17">
+<div class="pull-right item_actions">
+    <div class="btn btn-sm btn-danger pull-right delete" data-id="17">
+        <i class="voyager-trash"></i> Delete
+    </div>
+    <div class="btn btn-sm btn-primary pull-right edit"
+        data-id="17"
+        data-title="Custom Header Menu 1"
+        data-url="#"
+        data-target="_self"
+        data-icon_class="fas fa-star"
+        data-color=""
+        data-route=""
+        data-parameters="null"
+    >
+        <i class="voyager-edit"></i> Edit
+    </div>
+</div>
+<div class="dd-handle">
+                    <input type="hidden"
+   data-i18n="true"
+   name="title17_i18n"
+   id="title17_i18n"
+   value="{&quot;en&quot;:&quot;Custom Header Menu 1&quot;,&quot;ar&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;de&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;fr&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;es&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;hi&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;it&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;ja&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;nl&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;ru&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;zh_CN&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;,&quot;zh_TW&quot;:&quot;voyager::generic.Custom Header Menu 1&quot;}">
+                <span>Custom Header Menu 1</span> <small class="url">#</small>
+</div>
+            <ol class="dd-list">
+
+
+<li class="dd-item" data-id="18">
+<div class="pull-right item_actions">
+    <div class="btn btn-sm btn-danger pull-right delete" data-id="18">
+        <i class="voyager-trash"></i> Delete
+    </div>
+    <div class="btn btn-sm btn-primary pull-right edit"
+        data-id="18"
+        data-title="Digital Marketing Seminar"
+        data-url="#"
+        data-target="_self"
+        data-icon_class=""
+        data-color=""
+        data-route=""
+        data-parameters="null"
+    >
+        <i class="voyager-edit"></i> Edit
+    </div>
+</div>
+<div class="dd-handle">
+                    <input type="hidden"
+   data-i18n="true"
+   name="title18_i18n"
+   id="title18_i18n"
+   value="{&quot;en&quot;:&quot;Digital Marketing Seminar&quot;,&quot;ar&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;de&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;fr&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;es&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;hi&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;it&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;ja&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;nl&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;ru&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;zh_CN&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;,&quot;zh_TW&quot;:&quot;voyager::generic.Digital Marketing Seminar&quot;}">
+                <span>Digital Marketing Seminar</span> <small class="url">#</small>
+</div>
+    </li>
+
+
+</ol>
+    </li>
+
+
+<li class="dd-item" data-id="27">
+<div class="pull-right item_actions">
+    <div class="btn btn-sm btn-danger pull-right delete" data-id="27">
+        <i class="voyager-trash"></i> Delete
+    </div>
+    <div class="btn btn-sm btn-primary pull-right edit"
+        data-id="27"
+        data-title="Popular Events"
+        data-url="#"
+        data-target="_self"
+        data-icon_class="fas fa-star"
+        data-color=""
+        data-route=""
+        data-parameters="null"
+    >
+        <i class="voyager-edit"></i> Edit
+    </div>
+</div>
+<div class="dd-handle">
+                    <input type="hidden"
+   data-i18n="true"
+   name="title27_i18n"
+   id="title27_i18n"
+   value="{&quot;en&quot;:&quot;Popular Events&quot;,&quot;ar&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;de&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;fr&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;es&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;hi&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;it&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;ja&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;nl&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;ru&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;zh_CN&quot;:&quot;voyager::generic.Popular Events&quot;,&quot;zh_TW&quot;:&quot;voyager::generic.Popular Events&quot;}">
+                <span>Popular Events</span> <small class="url">#</small>
+</div>
+    </li>
+
+
+<li class="dd-item" data-id="19">
+<div class="pull-right item_actions">
+    <div class="btn btn-sm btn-danger pull-right delete" data-id="19">
+        <i class="voyager-trash"></i> Delete
+    </div>
+    <div class="btn btn-sm btn-primary pull-right edit"
+        data-id="19"
+        data-title="Custom Header Menu 2"
+        data-url="#"
+        data-target="_self"
+        data-icon_class="fas fa-star"
+        data-color=""
+        data-route=""
+        data-parameters="null"
+    >
+        <i class="voyager-edit"></i> Edit
+    </div>
+</div>
+<div class="dd-handle">
+                    <input type="hidden"
+   data-i18n="true"
+   name="title19_i18n"
+   id="title19_i18n"
+   value="{&quot;en&quot;:&quot;Custom Header Menu 2&quot;,&quot;ar&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;de&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;fr&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;es&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;hi&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;it&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;ja&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;nl&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;ru&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;zh_CN&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;,&quot;zh_TW&quot;:&quot;voyager::generic.Custom Header Menu 2&quot;}">
+                <span>Custom Header Menu 2</span> <small class="url">#</small>
+</div>
+            <ol class="dd-list">
+
+
+<li class="dd-item" data-id="20">
+<div class="pull-right item_actions">
+    <div class="btn btn-sm btn-danger pull-right delete" data-id="20">
+        <i class="voyager-trash"></i> Delete
+    </div>
+    <div class="btn btn-sm btn-primary pull-right edit"
+        data-id="20"
+        data-title="Daily Meditation Classes"
+        data-url="#"
+        data-target="_self"
+        data-icon_class=""
+        data-color=""
+        data-route=""
+        data-parameters="null"
+    >
+        <i class="voyager-edit"></i> Edit
+    </div>
+</div>
+<div class="dd-handle">
+                    <input type="hidden"
+   data-i18n="true"
+   name="title20_i18n"
+   id="title20_i18n"
+   value="{&quot;en&quot;:&quot;Daily Meditation Classes&quot;,&quot;ar&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;de&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;fr&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;es&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;hi&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;it&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;ja&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;nl&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;ru&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;zh_CN&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;,&quot;zh_TW&quot;:&quot;voyager::generic.Daily Meditation Classes&quot;}">
+                <span>Daily Meditation Classes</span> <small class="url">#</small>
+</div>
+    </li>
+
+
+</ol>
+    </li>
+
+
+<li class="dd-item" data-id="28">
+<div class="pull-right item_actions">
+    <div class="btn btn-sm btn-danger pull-right delete" data-id="28">
+        <i class="voyager-trash"></i> Delete
+    </div>
+    <div class="btn btn-sm btn-primary pull-right edit"
+        data-id="28"
+        data-title="Popular Blogs"
+        data-url="#"
+        data-target="_self"
+        data-icon_class="fas fa-blog"
+        data-color=""
+        data-route=""
+        data-parameters="null"
+    >
+        <i class="voyager-edit"></i> Edit
+    </div>
+</div>
+<div class="dd-handle">
+                    <input type="hidden"
+   data-i18n="true"
+   name="title28_i18n"
+   id="title28_i18n"
+   value="{&quot;en&quot;:&quot;Popular Blogs&quot;,&quot;ar&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;de&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;fr&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;es&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;hi&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;it&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;ja&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;nl&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;ru&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;zh_CN&quot;:&quot;voyager::generic.Popular Blogs&quot;,&quot;zh_TW&quot;:&quot;voyager::generic.Popular Blogs&quot;}">
+                <span>Popular Blogs</span> <small class="url">#</small>
+</div>
+    </li>
+
+
+</ol>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete this menu item?</h4>
+        </div>
+        <div class="modal-footer">
+            <form action="/admin/menus/2/item/__id"
+                  id="delete_form"
+                  method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d">
+                <input type="submit" class="btn btn-danger pull-right delete-confirm"
+                       value="Yes, Delete This Menu Item">
+            </form>
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal modal-info fade" tabindex="-1" id="menu_item_modal" role="dialog">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            <h4 id="m_hd_add" class="modal-title hidden"><i class="voyager-plus"></i> Create a New Menu Item</h4>
+            <h4 id="m_hd_edit" class="modal-title hidden"><i class="voyager-edit"></i> Edit Menu Item</h4>
+        </div>
+        <form action="" id="m_form" method="POST"
+              data-action-add="/admin/menus/{{id}}/item"
+              data-action-update="/admin/menus/{{id}}/item">
+
+            <input id="m_form_method" type="hidden" name="_method" value="POST">
+            <input type="hidden" name="_token" value="YlEZHCnZWzmQtBXZ6634SqkoXCWGkBlBK440dG0d">
+            <div class="modal-body">
+                <div>
+                    <div class="language-selector">
+<div class="btn-group btn-group-sm" role="group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+            <input type="radio" name="i18n_selector" id="en" autocomplete="off" checked=&quot;checked&quot;> EN
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="ar" autocomplete="off"> AR
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="de" autocomplete="off"> DE
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="fr" autocomplete="off"> FR
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="es" autocomplete="off"> ES
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="hi" autocomplete="off"> HI
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="it" autocomplete="off"> IT
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="ja" autocomplete="off"> JA
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="nl" autocomplete="off"> NL
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="ru" autocomplete="off"> RU
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="zh_CN" autocomplete="off"> ZH_CN
+        </label>
+                    <label class="btn btn-primary">
+            <input type="radio" name="i18n_selector" id="zh_TW" autocomplete="off"> ZH_TW
+        </label>
+            </div>
+</div>
+                    <label for="name">Title of the Menu Item</label>
+                    <input type="hidden"
+   data-i18n="true"
+   name="title_i18n"
+   id="title_i18n"
+   value="">
+                    <input type="text" class="form-control" id="m_title" name="title" placeholder="Title"><br>
+                </div>
+
+                
+                <input type="hidden" id="m_link_type" name="type" value="url">
+                
+                
+                
+                <div id="m_url_type">
+                    <label for="url">URL for the Menu Item</label>
+                    <input type="text" class="form-control" id="m_url" name="url" placeholder="URL"><br>
+                </div>
+                <div id="m_route_type">
+                    <label for="route">Route for the menu item</label>
+                    <input type="text" class="form-control" id="m_route" name="route" placeholder="Route"><br>
+                    <label for="parameters">Route parameters (if any)</label>
+                    <textarea rows="3" class="form-control" id="m_parameters" name="parameters" placeholder="{
+&quot;key&quot;: &quot;value&quot;
+}"></textarea><br>
+                </div>
+
+                
+                <label for="icon_class">Font Icon class for the Menu Item (Use a <br>
+                    <a href="https://fontawesome.com/icons?d=gallery&p=2&s=brands,solid&m=free" target="_blank">FontAwesome v5.0 Free, Solid & Brands Icon class only </a>
+                </label>
+                <input type="text" class="form-control" id="m_icon_class" name="icon_class" placeholder="e.g-1 fas fa-check / e.g -2 fab fa-apple"><br>
+                
+                       
+                
+                
+
+                <label for="target">Open In</label>
+                <select id="m_target" class="form-control" name="target">
+                    <option value="_self" selected="selected">Same Tab/Window</option>
+                    <option value="_blank">New Tab/Window</option>
+                </select>
+                <input type="hidden" name="menu_id" value="2">
+                <input type="hidden" name="id" id="m_id" value="">
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-success pull-right delete-confirm__" value="Update">
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,61 @@
+{%extends 'dashboard/dashboard/myevents/manage.html'%}
+
+{%block content%}
+
+
+<div id="page-content-for-mini" class="bg-light">
+
+    <section>
+        <div class="container-fluid">
+            <div class="row"><div class="col-12 py-1 mt-2">
+            <button type="button" id="nav-toggle" onclick="clickToggle()" class="btn btn-sm bg-secondary rounded-circle">
+                <i class="fas fa-bars text-white"></i>
+            </button></div></div>
+        </div> 
+        <div class="container-fluid my-2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header d-flex justify-content-between flex-wrap p-4 bg-white border-bottom-0">
+                                <div class="d-flex flex-column">
+                                    <div><h1 class="fw-bold h2">Booking {{id}}</h1></div> 
+                                    <div class="d-flex">
+                                        <div class="me-2">
+                                            <select name="event_id" class="form-select">
+                                                <option value="0">All Events </option> 
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        
+                        
+                    </div> 
+                    <div class="table-responsive">
+                        <table class="table text-wrap">
+                            <thead class="table-light text-nowrap">
+                                <tr>
+                                    <th class="border-top-0 border-bottom-0">Event</th> 
+                                    <th class="border-top-0 border-bottom-0">Booking</th> 
+                                    <th class="border-top-0 border-bottom-0">Commission</th> 
+                                    <th class="border-top-0 border-bottom-0">Profit</th> 
+                                    <th class="border-top-0 border-bottom-0">Month</th> 
+                                    <th class="border-top-0 border-bottom-0">Transferred</th>
+                                </tr>
+                            </thead> 
+                            <tbody> 
+                                <tr>
+                                    <td colspan="6" class="text-center align-middle">No Booking!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+</div>
+{%endblock%}

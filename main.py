@@ -8,6 +8,19 @@ app = Flask(__name__)
 
 app.secret_key = "secret key"
 
+@app.route("/admin/logout",methods=['GET','POST'])
+@app.route("/logout",methods=['GET','POST'])
+def logout():
+    session.clear()
+    return redirect("/login")
+
+@app.route("/admin/login",methods=['GET','POST'])
+@app.route("/login",methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        return redirect("/admin")
+    return render_template("login.html",**locals())
+
 @app.route("/")
 @app.route("/dashboard")
 @app.route("/admin")
@@ -21,6 +34,14 @@ def home():
 @app.route("/admin/categories")
 def categories():
     return render_template("categories/index.html",**locals())
+
+@app.route("/admin/categories/<int:id>/edit")
+def categories_edit(id):
+    return render_template("categories/edit/edit.html",**locals())
+
+@app.route("/admin/categories/<int:id>")
+def categories_view(id):
+    return render_template("categories/view.html",**locals())
 
 @app.route("/admin/categories/create")
 def categories_create():
@@ -48,7 +69,13 @@ def commissions_detail(id):
     return render_template("commissions/index.html",**locals())
 
 @app.route("/admin/events")
+@app.route("/admin/events/manage")
 def events():
+    return render_template("events.html",**locals())
+
+@app.route("/admin/events/<string:title>")
+@app.route("/admin/events/manage/<string:title>")
+def events_view(title):
     return render_template("events.html",**locals())
 
 @app.route("/admin/venues")
@@ -151,6 +178,7 @@ def menus_edit(id):
     return render_template("menus/"+str(id)+"/builder.html",**locals())
 
 @app.route("/admin/profile")
+@app.route("/profile")
 def profile():
     return render_template("profile/index.html",**locals())
 
@@ -162,12 +190,31 @@ def media():
 def media_edit():
     return render_template("media/edit.html",**locals())
 
+@app.route("/events")
+def events_all():
+    return render_template("dashboard/dashboard/event/index.html")
 
-@app.route("/dashboard/myevents/manage")
-@app.route("/dashboard/events/create")
-@app.route("/admin/events/create")
+@app.route("/events/<string:title>")
+def event_single(title):
+    return render_template("dashboard/dashboard/event/event.html")
+
+
+@app.route("/dashboard/myevents/manage",methods=['GET','POST'])
+@app.route("/dashboard/events/create",methods=['GET','POST'])
+@app.route("/admin/events/create",methods=['GET','POST'])
 def events_create():
+    if request.method == 'POST':
+        if 'next_tab' in request.form:
+            return redirect("#/"+request.form['next_tab'])
     return render_template("dashboard/dashboard/myevents/manage.html",**locals())
+
+@app.route("/dashboard/myevents/manage/<string:title>",methods=['GET','POST'])
+def events_edit(title):
+    return render_template("dashboard/dashboard/myevents/manage.html",**locals())
+
+@app.route("/dashboard/mybookings/<int:id>")
+def bookings_view(id):
+    return render_template("dashboard/dashboard/mybookings/booking.html",**locals())
 
 @app.route("/dashboard/myearning")
 def earnings():
@@ -176,6 +223,10 @@ def earnings():
 @app.route("/dashboard/ticket-scan")
 def scan():
     return render_template("dashboard/dashboard/myevents/scan.html",**locals())
+
+@app.route("/template/<string:files>")
+def load_files(files):
+    return render_template("dashboard/dashboard/"+files)
 
 
 

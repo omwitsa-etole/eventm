@@ -78,6 +78,14 @@ def events():
 def events_view(title):
     return render_template("events.html",**locals())
 
+@app.route("/venues")
+def venues_all():
+    return render_template("dashboard/dashboard/venues.html",**locals())
+
+@app.route("/venues/<string:title>")
+def venues_single(title):
+    return render_template("dashboard/dashboard/venues_single.html",**locals())
+
 @app.route("/admin/venues")
 def venues():
     return render_template("venues/index.html",**locals())
@@ -89,6 +97,10 @@ def venues_edit(id):
 @app.route("/admin/venues/<int:id>")
 def venues_view(id):
     return render_template("venues/view.html",**locals())
+
+@app.route("/admin/venues/create")
+def venues_create():
+    return render_template("venues/create.html",**locals())
 
 @app.route("/admin/taxes")
 def taxes():
@@ -197,6 +209,10 @@ def events_all():
 @app.route("/events/<string:title>")
 def event_single(title):
     return render_template("dashboard/dashboard/event/event.html")
+
+@app.route("/events/<string:title>/<string:tag>")
+def event_tag(title,tag):
+    return render_template("dashboard/dashboard/event/tag.html")
 
 
 @app.route("/dashboard/myevents/manage",methods=['GET','POST'])

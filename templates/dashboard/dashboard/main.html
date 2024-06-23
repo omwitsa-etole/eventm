@@ -118,7 +118,7 @@ Profile</a></li> <li class="nav-item dropdown"><a href="/dashboard/ticket-scan" 
 Scan Ticket</a></li> <li class="nav-item dropdown"><a href="/admin/events/create" class="dropdown-item"><i class="fas fa-calendar-plus"></i> Create Event</a></li> 
 <li class="nav-item dropdown"><a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout            </a> <form id="logout-form" action="/admin/logout" method="POST" style="display: none;"><input type="hidden" name="_token" value="gS0BFTCiWE39mJmVeN9z04GajJP6JHScHyNLR9pY"></form></li></ul></li> <li class="nav-item"><a href="/dashboard/ticket-scan" class="nav-link"><i class="fas fa-qrcode"></i>
 Scan Ticket</a></li> <li class="nav-item"><a href="/admin/events/create" class="nav-link"><i class="fas fa-calendar-plus"></i>
-Create Event</a></li> <li class="nav-item"><a href="/admin/venues" class="nav-link"><i class="fas fa-map-location"></i> Venues</a></li> <li class="nav-item dropdown"><a href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-bars-staggered"></i>
+Create Event</a></li> <li class="nav-item"><a href="/venues" class="nav-link"><i class="fas fa-map-location"></i> Venues</a></li> <li class="nav-item dropdown"><a href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-bars-staggered"></i>
                     Categories&nbsp;<i class="fas fa-caret-down"></i></a> <ul class="dropdown-menu" style="display: none; border: 1px solid rgb(255, 255, 255);"><li><a href="/admin/events?category=Business%2B%2526%2BSeminars" class="dropdown-item">
                                 Business &amp; Seminars
                             </a></li> <li><a href="/admin/events?category=Food%2B%2526%2BDrink" class="dropdown-item">
@@ -183,6 +183,201 @@ Create Event</a></li> <li class="nav-item"><a href="/admin/venues" class="nav-li
 
                     Eventmie Pro <strong>v2.0<strong>. Product by <a href="https://www.classiebit.com" target="_blank">Classiebit</a></strong></strong></p><strong><strong></strong></strong></div><strong><strong></strong></strong></div><strong><strong></strong></strong></div><strong><strong></strong></strong></div><strong><strong></strong></strong></div>
 
+
+
+
+    <script type="text/javascript" src="/static/admin/voyager.js"></script>
+    <script type="text/javascript" src="/static/assets/manifest.js"></script>
+    <script type="text/javascript" src="/static/assets/manage.js"></script>
+    <script type="text/javascript" src="/static/assets/manage2.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/eventmie_lang"></script>
+
+
+
+<script type="text/javascript">
+    const my_lang = "en";
+    const timezone_conversion = 1;
+    const timezone_default = "Asia\/Kolkata";
+
+
+    const date_format = {
+        vue_date_format: 'DD MMM YYYY',
+        vue_time_format: 'hh:mm A'
+    };
+</script>
+
+
+
+
+<script type="text/javascript">
+    /**
+     * Header menu onscroll 
+     */
+    var lastScrollTop = 0;
+
+    function handleScroll() {
+        let el = document.getElementById('navbar_vue');
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+
+        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        if (window.scrollY > 1) {
+            el.classList.add('shadow');
+            el.classList.add('menu-fixed');
+        } else {
+            el.classList.remove('shadow');
+            el.classList.remove('menu-fixed');
+
+            if (el.classList.contains('is-active')) {
+                el.classList.add('is-mobile');
+            }
+        }
+    };
+
+    function scrollListener(obj, type, fn) {
+        if (obj.attachEvent) {
+            obj['e' + type + fn] = fn;
+            obj[type + fn] = function() {
+                obj['e' + type + fn](window.event);
+            };
+            obj.attachEvent('on' + type, obj[type + fn]);
+        } else {
+            obj.addEventListener(type, fn, false);
+        }
+    }
+
+    scrollListener(window, 'scroll', function(e) {
+        handleScroll();
+    });
+
+    // dashboard  Toggle
+    function clickToggle() {
+        let dbWrapperTwo = document.getElementById("db-wrapper-two");
+        let dbWrapper = document.getElementById("db-wrapper");
+        sideToggle(dbWrapperTwo, dbWrapper);
+    }
+
+    //dashboard Toggle
+    sideToggle = (dbWrapperTwo, dbWrapper) => {
+        if (dbWrapper.classList == '' || dbWrapperTwo == '') {
+            dbWrapperTwo.classList.add('toggled');
+            dbWrapper.classList.add('toggled');
+        } else {
+            dbWrapperTwo.classList.remove('toggled');
+            dbWrapper.classList.remove('toggled');
+        }
+    }
+
+    // Copy to clipboard
+    function copyToClipboard() {
+        var dummy = document.createElement('input'),
+            text = window.location.href;
+
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+
+        alert('Event URL Copied!')
+    }
+
+
+    // set local timezone 
+    var local_timezone = "https:\/\/eventmie-pro-demo.classiebit.com\/set\/local_timezone";
+
+    function setLocalTimezone() {
+        // Making our request
+        fetch(local_timezone, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify({
+                    local_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                })
+            })
+            .then(Result => Result.json())
+            .then(string => {
+                console.log('lang', string);
+            })
+            .catch(errorMsg => {
+                console.log(errorMsg);
+            });
+    }
+
+    setLocalTimezone();
+
+    // Bootstrap Navbar collapse using JS Script
+    document.addEventListener("DOMContentLoaded", function() {
+        const navbarToggler = document.querySelector(".navbar-toggler");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+        console.log(navbarToggler, navbarCollapse, 'navbar-collapse');
+        if (navbarToggler || navbarCollapse) {
+            navbarToggler.addEventListener("click", function() {
+                // Toggle the visibility of the dropdown menu
+                if (navbarCollapse.style.display === "none" || navbarCollapse.style.display === "") {
+                    navbarCollapse.style.display = "block";
+                    navbarCollapse.classList.add('show');
+                } else {
+                    navbarCollapse.style.display = "none";
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+
+            // Close the dropdown if the user clicks outside of it
+            document.addEventListener("click", function(event) {
+                if (!navbarToggler.contains(event.target) && !navbarCollapse.contains(event.target)) {
+                    navbarCollapse.style.display = "none";
+                    navbarCollapse.classList.add('show');
+                }
+            });
+        }
+    });
+
+    // Bootstrap Dropdown using JS Script
+    document.addEventListener("DOMContentLoaded", function() {
+        const dropdownButtons = document.querySelectorAll(".dropdown-toggle");
+        const dropdownMenus = document.querySelectorAll(".dropdown-menu");
+
+        if (dropdownButtons || dropdownMenus) {
+            // Add click event listeners to each dropdown button
+            dropdownButtons.forEach((button, index) => {
+                button.addEventListener("click", function() {
+                    // Toggle the visibility of the corresponding dropdown menu
+                    if (dropdownMenus[index].style.display === "none" || dropdownMenus[index]
+                        .style
+                        .display === "") {
+                        dropdownMenus[index].style.display = "block";
+                        dropdownMenus[index].style.border = "1px solid #fff";
+                        dropdownMenus[index].classList.add('show', 'shadow');
+                    } else {
+                        dropdownMenus[index].style.display = "none";
+                        dropdownMenus[index].classList.remove('show', 'shadow');
+                    }
+                });
+            });
+
+            // Close all dropdowns if the user clicks outside of any dropdown
+            document.addEventListener("click", function(event) {
+                dropdownButtons.forEach((button, index) => {
+                    if (!button.contains(event.target) && !dropdownMenus[index].contains(event
+                            .target)) {
+                        dropdownMenus[index].style.display = "none";
+                        dropdownMenus[index].style.border = "1px solid #fff";
+                        dropdownMenus[index].classList.remove('show', 'shadow');
+                    }
+                });
+            });
+        }
+    });
+</script>
+
+    
+    <script>
+    var is_event_id = 0;
+</script>              
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUyFz7DzKxKSRuWRBacFqt8-6BHFYGXL4&amp;libraries=places">
   </script>
   <script type="text/javascript" src="/static/frontend-assets-79b943d058af3.js"></script>

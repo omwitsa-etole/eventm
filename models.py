@@ -13,6 +13,21 @@ class Model_Category:
 class Model_Venue:
     def __init__(self,*args):
         self.id = args[0]
+        self.name = args[1]
+        self.slug = args[2]
+        self.images = args[3]
+        self.statusdescription = args[4]
+        self.venue_type = args[5]
+        self.seated_guestnumber = args[6]
+        self.standing_guestnumber = args[7]
+        self.contact_email = args[8]
+        self.ammenities = args[9]
+        self.neighbourhoods = args[10];self.availability = args[11]
+        self.food = args[12];self.country = args[13];self.address = args[14]
+        self.city = args[15];self.state = args[16];self.zip_code = args[17]
+        self.show_quoteform = True if args[18] == 1 else False
+        self.updated_at = args[-3]
+        self.created_at = args[-2];self.deleted_at = args[-1]
     def to_dict(self):
         return self.__dict__
 class Model_Commission:
@@ -23,13 +38,18 @@ class Model_Commission:
 
 class Model_Tax:
     def __init__(self,*args):
-        self.id = args[0]
+        self.id = args[0];self.name = args[1];sel.rate_type = args[2]
+        self.rate = args[3];self.net_price = args[4];self.status = True if args[5] == 1 else False
+        self.admin_tax = True if args[6] == 1 else False
+        self.updated_at = args[-3];self.created_at = args[-2];self.deleted_at = args[-1]
     def to_dict(self):
         return self.__dict__
 
 class Model_Contact:
     def __init__(self,*args):
-        self.id = args[0]
+        self.id = args[0];self.name =args[1];self.email=args[2]
+        self.title = args[3];self.updated_at = args[4];self.created_at=args[6]
+        self.deleted_at = args[-1]
     def to_dict(self):
         return self.__dict__
 
@@ -39,25 +59,54 @@ class Model_Banner:
         self.name = args[1]
         self.sub_title = args[2]
         self.image = args[3]
+        self.button_url = args[4]
+        self.button_title = args[5]
+        self.order_no = args[6]
+        self.status = 'Enabled' if args[7] == 1 else 'Disabled'
+        self.updated_at = args[8]
+        self.created_at = args[9]
+        self.deleted = args[-1]
     def to_dict(self):
         return self.__dict__
 
 class Model_Page:
     def __init__(self,*args):
-        self.id = args[0]
+        self.id = args[0];self.name = args[1];self.slug=args[2]
+        self.image = args[3];self.excerpt = args[4];self.body =args[5]
+        self.meta_description = args[6],self.meta_keywords = args[7],
+        self.status = True if args[8] == 1 else False
+        self.updated_at = args[-3];self.created_at = args[-2];
+        self.deleted_at = args[-1]
     def to_dict(self):
         return self.__dict__
 
 class Model_Tag:
     def __init__(self,*args):
-        self.id = args[0]
+        self.id = args[0];self.name=args[1];self.image=args[2];self.type=args[3]
+        self.sub_title = args[4];self.website=args[6]
+        self.is_page = True if args[7] == 1 else False
+        self.description = args[8];self.phone=args[9];self.email=args[10]
+        self.status = True if args[11] == 1 else False
+        self.facebook = args[12];self.instagram=args[13];self.twitter=args[14];self.linkedin=args[15]
+        self.updated_at = args[-3];self.created_at = args[-2]
+        self.deleted_at = args[-1]  
     def to_dict(self):
         return self.__dict__
 
 
 class Model_Booking:
     def __init__(self,*args):
-        self.id = args[0]
+        self.id = args[0];self.order_number=args[1]
+        self.event_id = args[2];self.ticket_id =args[3];self.quantity=args[4]
+        self.net_price = float(args[5]);self.customer_email=args[6]
+        self.booking_cancel = True if args[7] == 1 else False
+        self.status = True if args[7] == 1 else False
+        self.created_at = args[8];self.checked_in = True if args[9] == 1 else False
+        self.payment_type = args[10]
+        self.is_paid = True if args[11] == 1 else False
+        self.expired = True if args[12] == 1 else False
+        self.updated_at = args[-2]
+        self.deleted_at = args[-1]
     def to_dict(self):
         return self.__dict__
 
@@ -69,18 +118,23 @@ class Model_Event:
 
 class Model_Post:
     def __init__(self,*args):
-        self.id = args[0]
+        self.id = args[0];self.name=args[1];self.slug=args[2]
+        self.image = args[3];self.excerpt=args[4];self.category_id = args[5]
+        self.featured = args[6];self.body=args[7];self.meta_description = args[8]
+        self.meta_keywords = args[9];self.status = args[10];self.seo_title = args[11]
+        self.updated_at = args[-3];self.created_at = args[-2];self.deleted_at = args[-1]
     def to_dict(self):
         return self.__dict__
 
 class Model_User:
     def __init__(self,id,company,username,mobile,password,login_code,group,email,last_login,previous_login,login_hash,user_id,created_at,updated_at,deleted):
         self.id = id
-        self.username = username
+        self.name = username
         self.mobile = mobile
         self.password = password
         self.group = group
         self.email = email
+        self.created_at = created_at
     def to_dict(self):
         return self.__dict__
 

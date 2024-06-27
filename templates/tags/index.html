@@ -143,106 +143,55 @@ if (count) {
                             </tr>
                         </thead>
                         <tbody>
-                                                                <tr>
-                                                                            <td>
-                                        <input type="checkbox" name="row_id" id="checkbox_43" value="43">
-                                    </td>
-                                                                                                                                                                <td>
-                                                                                                                                                <div>43</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                            <img src="/storage/sponsors/September2019/AOoTe60TcxBF2Qt4smdq.png" style="width:100px">
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                <div>Digital Human</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                <div>sponsors</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                        
+                            
+                            {%for tag in tags%}                                   
+                             <tr>
+                                 <td>
+                                    <input type="checkbox" name="row_id" id="checkbox_{{tag['id']}}" value="{{tag['id']}}">
+                                </td>
+                               <td>
+                                    <div>{{tag['id']}}</div>
+                               </td>
+                                <td>
+                                    <img src="/static/uploads/{{tag['image']}}" style="width:100px">
+                                </td>
+                                  <td>
+                                    <div>Becom</div>
+                                </td>
+                                <td>
+                                    <div>sponsors</div>
+                                </td>
+                                <td>
+                               
                                             No
 
-                                                                                    </td>
-                                                                                                                        <td>
-                                        
-                                            Enabled
-
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                    2024-09-02 06:06:15
-                                                                                                                                        </td>
-                                                                        <td class="no-sort no-click bread-actions">
-                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="43" id="delete-43">
-        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
-    </a>
-                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/tags/43/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
-        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
-    </a>
-                                                                                                                                                                                                    <a href="/admin/tags/43" title="View" class="btn btn-sm btn-warning pull-right view">
-        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
-    </a>
-                                                                                                                                        </td>
+                                </td>
+                                <td>
+                                 {{'Enabled' if tag['staus'] else 'Disabled'}}
+                                </td>
+                               <td>
+                                    {{tag['created_at']}}
+                               </td>
+                                <td class="no-sort no-click bread-actions">
+                                   <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="{{tag['id']}}" id="delete-{{tag['id']}}">
+                                    <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+                                    </a>
+                                         <a href="/admin/tags/{{tag['id']}}/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+                                        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+                                    </a>
+                                        <a href="/admin/tags/{{tag['id']}}" title="View" class="btn btn-sm btn-warning pull-right view">
+                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                    </a>
+                                </td>
                             </tr>
+                            {%endfor%}                                   
                                                                 
-                                                                <tr>
-                                                                            <td>
-                                        <input type="checkbox" name="row_id" id="checkbox_41" value="41">
-                                    </td>
-                                                                                                                                                                <td>
-                                                                                                                                                <div>41</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                            <img src="/storage/sponsors/September2019/Iu0hFV7avmdWrc5J7VOM.png" style="width:100px">
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                <div>Becom</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                <div>sponsors</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                        
-                                            No
-
-                                                                                    </td>
-                                                                                                                        <td>
-                                        
-                                            Enabled
-
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                    2024-09-02 06:05:44
-                                                                                                                                        </td>
-                                                                        <td class="no-sort no-click bread-actions">
-                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="41" id="delete-41">
-        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
-    </a>
-                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/tags/41/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
-        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
-    </a>
-                                                                                                                                                                                                    <a href="/admin/tags/41" title="View" class="btn btn-sm btn-warning pull-right view">
-        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
-    </a>
-                                                                                                                                        </td>
-                            </tr>
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                            </tbody>
+                               
+                       </tbody>
                     </table>
                 </div>
                                             <div class="pull-left">
-                        <div role="status" class="show-res" aria-live="polite">Showing 1 to 15 of 46 entries</div>
+                        <div role="status" class="show-res" aria-live="polite">Showing 1 to 15 of {{tags | length}} entries</div>
                     </div>
                     <div class="pull-right">
                         <nav>
@@ -256,11 +205,11 @@ if (count) {
                     
         
         
-                                                                                <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
-                                                                                        <li class="page-item"><a class="page-link" href="/admin/tags?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=2">2</a></li>
-                                                                                        <li class="page-item"><a class="page-link" href="/admin/tags?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=3">3</a></li>
-                                                                                        <li class="page-item"><a class="page-link" href="/admin/tags?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=4">4</a></li>
-                                                                
+        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                <li class="page-item"><a class="page-link" href="/admin/tags?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=2">2</a></li>
+                <li class="page-item"><a class="page-link" href="/admin/tags?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=3">3</a></li>
+                <li class="page-item"><a class="page-link" href="/admin/tags?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=4">4</a></li>
+
     
                     <li class="page-item">
             <a class="page-link" href="/admin/tags?order_by=updated_at&amp;sort_order=desc&amp;showSoftDeleted=0&amp;page=2" rel="next" aria-label="Next »">›</a>

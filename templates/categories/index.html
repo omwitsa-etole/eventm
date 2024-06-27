@@ -137,85 +137,49 @@ if (count) {
                             </tr>
                         </thead>
                         <tbody>
-                                                              
-        
-                                                                <tr>
-                                                                            <td>
-                                        <input type="checkbox" name="row_id" id="checkbox_3" value="3">
-                                    </td>
-                                                                                                                                                                <td>
-                                                                                                                                                <div>3</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                <div>Education &amp; Classes</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                <div>education-&amp;-classes</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                            <img src="" style="width:100px">
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                    2024-11-29 08:02:29
-                                                                                                                                        </td>
-                                                                                                                        <td>
-                                        
-                                            Enabled
-
-                                                                                    </td>
-                                                                        <td class="no-sort no-click bread-actions">
-                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="3" id="delete-3">
-        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
-    </a>
-                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/categories/3/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
-        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
-    </a>
-                                                                                                                                                                                                    <a href="/admin/categories/3" title="View" class="btn btn-sm btn-warning pull-right view">
-        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
-    </a>
-                                                                                                                                        </td>
-                            </tr>
-                                                                <tr>
-                                                                            <td>
+                           {%for category in categories%}                                   
+                                <tr>
+                                    <td>
                                         <input type="checkbox" name="row_id" id="checkbox_2" value="2">
                                     </td>
-                                                                                                                                                                <td>
-                                                                                                                                                <div>2</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                <div>Yoga &amp; Health</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                <div>yoga-&amp;-health</div>
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                            <img src="/storage/categories/November2023/5e25dBRZOUVnbhedF2MH.webp" style="width:100px">
-                                                                                    </td>
-                                                                                                                        <td>
-                                                                                                                                                    2024-11-29 08:02:23
-                                                                                                                                        </td>
-                                                                                                                        <td>
-                                        
-                                            Enabled
+                                    <td>
+                                        <div>{{category['id']}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{category['name']}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{category['slug']}}</div>
+                                    </td>
+                                                                        <td>
+                                            <img src="/static/uploads/{{category['image']}}" style="width:100px">
+                                    </td>
+                                        <td>
+                                            {{category['created_at']}}    
+                                        </td>
+                                    <td>
 
-                                                                                    </td>
-                                                                        <td class="no-sort no-click bread-actions">
-                                                                                                                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="2" id="delete-2">
-        <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
-    </a>
-                                                                                                                                                                                                                                                                                                                                                                                                    <a href="/admin/categories/2/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
-        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
-    </a>
-                                                                                                                                                                                                    <a href="/admin/categories/2" title="View" class="btn btn-sm btn-warning pull-right view">
-        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
-    </a>
-                                                                                                                                        </td>
-                            </tr>
-                                                            </tbody>
+                                      {{category['status']}}
+
+                                    </td>
+                                    <td class="no-sort no-click bread-actions">
+                                      <a href="javascript:void(0);" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="{{category['id']}}" id="delete-{{category['id']}}">
+                                    <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+                                    </a>
+                                    <a href="/admin/categories/{{category['id']}}/edit" title="Edit" class="btn btn-sm btn-primary pull-right edit">
+                                        <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+                                    </a>
+                                                    <a href="/admin/categories/{{category['id']}}" title="View" class="btn btn-sm btn-warning pull-right view">
+                                    <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                    </a>
+                                    </td>
+                                </tr>
+                           {%endfor%}
+                         </tbody>
                     </table>
                 </div>
                                             <div class="pull-left">
-                        <div role="status" class="show-res" aria-live="polite">Showing 1 to 9 of 9 entries</div>
+                        <div role="status" class="show-res" aria-live="polite">Showing 1 to 9 of {{categories | length}} entries</div>
                     </div>
                     <div class="pull-right">
                         

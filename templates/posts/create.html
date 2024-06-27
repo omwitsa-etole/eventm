@@ -1,0 +1,188 @@
+{%extends 'admin.html'%}
+
+{%block content%}
+
+<div class="container-fluid">
+    <div class="side-body padding-top">
+            <h1 class="page-title">
+<i class="voyager-news"></i>
+Add Post
+</h1>
+            <div id="voyager-notifications"></div>
+            <div class="page-content container-fluid">
+<form class="form-edit-add" role="form" action="/admin/posts/create" method="POST" enctype="multipart/form-data">
+    <!-- PUT Method if we are editing -->
+                <input type="hidden" name="_token" value="xNPXp7Wy2cLb5pvr62bUPj3Ib7OA9pxT6SIlteux">
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- ### TITLE ### -->
+            <div class="panel">
+                
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i class="voyager-character"></i> Post Title
+                        <span class="panel-desc"> The title for your post</span>
+                    </h3>
+                    <div class="panel-actions">
+                        <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                     <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="">
+                </div>
+            </div>
+
+            <!-- ### CONTENT ### -->
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Post Content</h3>
+                    <div class="panel-actions">
+                        <a class="panel-action voyager-resize-full" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <textarea class="form-control richTextBox" name="body" id="richtextbody" style="display:;" aria-hidden="true">    
+                    </textarea>
+
+
+                </div>
+            </div><!-- .panel -->
+
+            <!-- ### EXCERPT ### -->
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Excerpt <small>Small description of this post</small></h3>
+                    <div class="panel-actions">
+                        <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                     <textarea class="form-control" name="excerpt"></textarea>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Additional Fields</h3>
+                    <div class="panel-actions">
+                        <a class="panel-action panel-collapsed voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                    </div>
+                </div>
+                <div class="panel-body" style="display: none;">
+                 </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <!-- ### DETAILS ### -->
+            <div class="panel panel panel-bordered panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="icon wb-clipboard"></i> Post Details</h3>
+                    <div class="panel-actions">
+                        <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="slug">URL slug</label>
+                            <input type="text" class="form-control" id="slug" name="slug" placeholder="slug" data-slug-origin="title" data-slug-forceupdate="true" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Post Status</label>
+                        <select class="form-control" name="status">
+                            <option value="PUBLISHED">published</option>
+                            <option value="DRAFT">draft</option>
+                            <option value="PENDING">pending</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="category_id">Post Category</label>
+                        <select class="form-control" name="category_id">
+                                                                   
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="featured">Featured</label>
+                        <input type="checkbox" name="featured">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ### IMAGE ### -->
+            <div class="panel panel-bordered panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="icon wb-image"></i> Post Image</h3>
+                    <div class="panel-actions">
+                        <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <input type="file" name="image">
+                </div>
+            </div>
+
+            <!-- ### SEO CONTENT ### -->
+            <div class="panel panel-bordered panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="icon wb-search"></i> SEO Content</h3>
+                    <div class="panel-actions">
+                        <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="meta_description">Meta Description</label>
+                        <textarea class="form-control" name="meta_description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="meta_keywords">Meta Keywords</label>
+                        <textarea class="form-control" name="meta_keywords"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="seo_title">SEO Title</label>
+                         <input type="text" class="form-control" name="seo_title" placeholder="SEO Title" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                <button type="submit" class="btn btn-primary pull-right">
+              <i class="icon wb-plus-circle"></i> Create New Post                 </button>
+            </form>
+
+<iframe id="form_target" name="form_target" style="display:none"></iframe>
+<form id="my_form" action="/admin/upload" target="form_target" method="post" enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+    <input name="image" id="upload_file" type="file" onchange="$('#my_form').submit();this.value='';">
+    <input type="hidden" name="type_slug" id="type_slug" value="posts">
+    <input type="hidden" name="_token" value="xNPXp7Wy2cLb5pvr62bUPj3Ib7OA9pxT6SIlteux">
+</form>
+</div>
+
+<div class="modal fade modal-danger" id="confirm_delete_modal">
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title"><i class="voyager-warning"></i> Are you sure</h4>
+        </div>
+
+        <div class="modal-body">
+            <h4>Are you sure you want to delete '<span class="confirm_delete_name"></span>'</h4>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" id="confirm_delete">Yes, Delete it!</button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Delete File Modal -->
+    </div>
+</div>
+
+{%endblock%}

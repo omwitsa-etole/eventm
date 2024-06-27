@@ -16,7 +16,7 @@ Add Tag
 
         <div class="panel panel-bordered">
             <!-- form start -->
-            <form role="form" class="form-edit-add" action="/admin/tags" method="POST" enctype="multipart/form-data">
+            <form role="form" class="form-edit-add" action="/admin/tags/create" method="POST" enctype="multipart/form-data">
                 <!-- PUT Method if we are editing -->
                 
                 <!-- CSRF TOKEN -->
@@ -32,70 +32,59 @@ Add Tag
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Organizer</label>
-                                                                                                        <select class="form-control" name="organizer_id" required="">
-    <option value="">None</option>
+                            <select class="form-control" name="organizer_id" required="">
+                                <option value="">None</option>
 
-    <option value="6">
-    Josh Grey ( joshgrey@mail.com )
-</option>
-    <option value="7">
-    Gina White ( ginawhite@mail.com )
-</option>
-    <option value="8">
-    Katie Stone ( katiestone@mail.com )
-</option>
-    <option value="9">
-    Tony Ray ( tonyray@mail.com )
-</option>
-</select>
+   
+                            </select>
                             
-                                                                                                </div>
+                       </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Image</label>
-                                                                                                        <input type="file" name="image" accept="image/*">
+                             <input type="file" name="image" accept="image/*">
 
                             
-                                                                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-html="true" title="" data-original-title="upload image of size 512x512 pixels."></span>
-                                                                                                </div>
+                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-html="true" title="" data-original-title="upload image of size 512x512 pixels."></span>
+                         </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Title</label>
-                                                                                                        <input required="" type="text" class="form-control" name="title" placeholder="e.g John Doe" value="">
+                            <input required="" type="text" class="form-control" name="title" placeholder="e.g John Doe" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Type</label>
-                                                                                                        <input required="" type="text" class="form-control" name="type" placeholder="e.g speaker" value="">
+                            <input required="" type="text" class="form-control" name="type" placeholder="e.g speaker" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Sub Title</label>
-                                                                                                        <input type="text" class="form-control" name="sub_title" placeholder="e.g Business coach &amp; Entrepreneur" value="">
+                            <input type="text" class="form-control" name="sub_title" placeholder="e.g Business coach &amp; Entrepreneur" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Website</label>
-                                                                                                        <input type="text" class="form-control" name="website" placeholder="e.g http://example.com" value="">
+                            <input type="text" class="form-control" name="website" placeholder="e.g http://example.com" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
@@ -111,64 +100,64 @@ Add Tag
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Description</label>
-                                        <textarea class="form-control richTextBox" name="description" id="richtextdescription" style="display: ;" aria-hidden="true">    
-                                        </textarea>
-                                                                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-html="true" title="" data-original-title="Fill this only if you selected Is Page - Yes"></span>
-                                                                                                </div>
+                            <textarea class="form-control richTextBox" name="description" id="richtextdescription" style="display: ;" aria-hidden="true">    
+                            </textarea>
+                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" data-html="true" title="" data-original-title="Fill this only if you selected Is Page - Yes"></span>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Phone</label>
-                                                                                                        <input type="text" class="form-control" name="phone" placeholder="Fill this only if you selected Is Page - Yes" value="">
+                            <input type="text" class="form-control" name="phone" placeholder="Fill this only if you selected Is Page - Yes" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Email</label>
-                                                                                                        <input type="text" class="form-control" name="email" placeholder="Fill this only if you selected Is Page - Yes" value="">
+                            <input type="text" class="form-control" name="email" placeholder="Fill this only if you selected Is Page - Yes" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Facebook</label>
-                                                                                                        <input type="text" class="form-control" name="facebook" placeholder="Fill this only if you selected Is Page - Yes" value="">
+                            <input type="text" class="form-control" name="facebook" placeholder="Fill this only if you selected Is Page - Yes" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Instagram</label>
-                                                                                                        <input type="text" class="form-control" name="instagram" placeholder="Fill this only if you selected Is Page - Yes" value="">
+                            <input type="text" class="form-control" name="instagram" placeholder="Fill this only if you selected Is Page - Yes" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Twitter</label>
-                                                                                                        <input type="text" class="form-control" name="twitter" placeholder="Fill this only if you selected Is Page - Yes" value="">
+                            <input type="text" class="form-control" name="twitter" placeholder="Fill this only if you selected Is Page - Yes" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
                             
                             <label class="control-label" for="name">Linkedin</label>
-                                                                                                        <input type="text" class="form-control" name="linkedin" placeholder="Fill this only if you selected Is Page - Yes" value="">
+                            <input type="text" class="form-control" name="linkedin" placeholder="Fill this only if you selected Is Page - Yes" value="">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 ">
@@ -184,8 +173,8 @@ Add Tag
                 </div><!-- panel-body -->
 
                 <div class="panel-footer">
-                                                                                <button type="submit" class="btn btn-primary save">Save</button>
-                                            </div>
+                    <button type="submit" class="btn btn-primary save">Save</button>
+                </div>
             </form>
 
             <iframe id="form_target" name="form_target" style="display:none"></iframe>

@@ -12,12 +12,14 @@ Add Category
             <div class="page-content edit-add container-fluid">
 <div class="row">
     <div class="col-md-12">
-
+        {%if message%}
+            <div class="alert alert-info"><p>{{message}}</p></div>
+        {%endif%}
         <div class="panel panel-bordered">
             <!-- form start -->
             <form role="form"
                     class="form-edit-add"
-                    action="/admin/categories"
+                    action="/admin/categories/create"
                     method="POST" enctype="multipart/form-data">
                 <!-- PUT Method if we are editing -->
                 
@@ -58,7 +60,7 @@ value="">
                         <div class="form-group  col-md-12 " >
                             
                             <label class="control-label" for="name">Thumb (480x270 px)</label>
-                                                                                                        <input  type="file" name="thumb" accept="image/*">
+                                       <input  type="file" name="thumb" accept="image/*">
 
                             
                                                                                                 </div>

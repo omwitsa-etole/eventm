@@ -37,52 +37,52 @@ Edit Category
                         <div class="form-group  col-md-12 " >
                             
                             <label class="control-label" for="name">Name</label>
-                                                                                                        <input  required  type="text" class="form-control" name="name"
-placeholder="Name"
-
-value="Yoga &amp; Health">
+                             <input  required  type="text" class="form-control" name="name" placeholder="Name" value="{{category.get('name')}}">
 
                             
-                                                                                                </div>
+                         </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 " >
                             
                             <label class="control-label" for="name">Slug</label>
-                                                                                                        <input  required  type="text" class="form-control" name="slug"
-placeholder="Slug"
-data-slug-origin=name
-value="yoga-&amp;-health">
+                                    <input  required  type="text" class="form-control" name="slug" placeholder="Slug"
+data-slug-origin=name value="{{category.get('slug')}}">
 
                             
-                                                                                                </div>
+                        </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 " >
                             
                             <label class="control-label" for="name">Thumb (480x270 px)</label>
-                                                                                                        <div data-field-name="thumb">
-<a href="#" class="voyager-x remove-single-image" style="position:absolute;"></a>
-<img src="https://eventmie-pro-demo.classiebit.com/storage/categories/November2023/5e25dBRZOUVnbhedF2MH.webp"
-  data-file-name="categories/November2023/5e25dBRZOUVnbhedF2MH.webp" data-id="2"
-  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
+                                    <div data-field-name="thumb">
+                        <a href="#" class="voyager-x remove-single-image" style="position:absolute;"></a>
+                        <img src="/storage/categories/November2023/5e25dBRZOUVnbhedF2MH.webp"
+                        data-file-name="categories/November2023/5e25dBRZOUVnbhedF2MH.webp" data-id="{{category.get('id')}}"
+                        style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
 </div>
 <input  type="file" name="thumb" accept="image/*">
 
                             
-                                                                                                </div>
+                         </div>
                                                     <!-- GET THE DISPLAY OPTIONS -->
                                                         
                         <div class="form-group  col-md-12 " >
                             
                             <label class="control-label" for="name">Status</label>
-                                                                                                        <select class="form-control select2" name="status">
+                            <select class="form-control select2" name="status">
+                                {%if category.get('status') = 'Enabled'%}
                                     <option value="0"  >Disabled</option>
-                    <option value="1"   selected="selected" >Enabled</option>
-                </select>
+                                    <option value="1"   selected="selected" >Enabled</option>
+                                {%else%}
+                                    <option value="0" selected="selected"  >Disabled</option>
+                                    <option value="1"  >Enabled</option>
+                                {%endif%}
+                            </select>
 
                             
-                                                                                                </div>
+                        </div>
                     
                 </div><!-- panel-body -->
 

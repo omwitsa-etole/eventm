@@ -8,7 +8,7 @@
             <h1 class="page-title">
 <i class="fas fa-lighthouse"></i> Viewing Venue &nbsp;
 
-            <a href="/admin/venues/2/edit" class="btn btn-info">
+            <a href="/admin/venues/{{id}}/edit" class="btn btn-info">
         <i class="glyphicon glyphicon-pencil"></i> <span class="hidden-xs hidden-sm">Edit</span>
     </a>
                                     <a href="javascript:;" title="Delete" class="btn btn-danger delete" data-id="2" id="delete-2">
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="panel-body" style="padding-top:0;">
-                                                                                    <p>2</p>
+                                                                                    <p>{{venue['id']}}</p>
                                             </div><!-- panel-body -->
                                             <hr style="margin:0;">
                                                                                     <div class="panel-heading" style="border-bottom:0;">

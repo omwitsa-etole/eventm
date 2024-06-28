@@ -1,0 +1,101 @@
+
+<form method="POST" enctype="multipart/form-data" class="lgx-contactform">
+    <input type="hidden" name="event_id" value="0"> 
+    <input type="hidden" name="next_tab" value="timing"> 
+    <input type="hidden" name="current_tab" value="details">
+    <input type="hidden"  aria-required="true" aria-invalid="false"> 
+    <div class="mb-3">
+        <label class="form-label">  Organiser</label> 
+        <div>
+            <div dir="auto" class="v-select style-chooser vs--single vs--searchable" required="required"> 
+                <div id="vs1__combobox" role="combobox" aria-expanded="false" aria-owns="vs1__listbox" aria-label="Search for option" class="vs__dropdown-toggle">
+                    <div class="vs__selected-options"> 
+                        <input value="{{event.get('organiser_id') or ''}}" name="organiser_id" placeholder="Search Organiser Email/Name" aria-autocomplete="list" aria-labelledby="vs1__combobox" aria-controls="vs1__listbox" type="search" autocomplete="off" class="vs__search">
+                    </div> 
+                    <div class="vs__actions">
+                        <button type="button" title="Clear Selected" aria-label="Clear Selected" class="vs__clear" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><path d="M6.895455 5l2.842897-2.842898c.348864-.348863.348864-.914488 0-1.263636L9.106534.261648c-.348864-.348864-.914489-.348864-1.263636 0L5 3.104545 2.157102.261648c-.348863-.348864-.914488-.348864-1.263636 0L.261648.893466c-.348864.348864-.348864.914489 0 1.263636L3.104545 5 .261648 7.842898c-.348864.348863-.348864.914488 0 1.263636l.631818.631818c.348864.348864.914773.348864 1.263636 0L5 6.895455l2.842898 2.842897c.348863.348864.914772.348864 1.263636 0l.631818-.631818c.348864-.348864.348864-.914489 0-1.263636L6.895455 5z"></path></svg>
+                        </button> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" role="presentation" class="vs__open-indicator"><path d="M9.211364 7.59931l4.48338-4.867229c.407008-.441854.407008-1.158247 0-1.60046l-.73712-.80023c-.407008-.441854-1.066904-.441854-1.474243 0L7 5.198617 2.51662.33139c-.407008-.441853-1.066904-.441853-1.474243 0l-.737121.80023c-.407008.441854-.407008 1.158248 0 1.600461l4.48338 4.867228L7 10l2.211364-2.40069z"></path></svg> 
+                        <div class="vs__spinner" style="display: none;">Loading...</div>
+                    </div>
+                </div> 
+                    <ul id="vs1__listbox" role="listbox" style="display: none; visibility: hidden;"></ul> 
+            </div>
+        </div> <!----> 
+        <span class="help text-danger" style="display: none;"></span>
+        </div> <!----> 
+        <div class="mb-3">
+            <label class="form-label">Select Category</label> 
+            <select name="category_id" class="form-control" aria-required="true" aria-invalid="false">
+                <option value="0">-- Category --</option> 
+                {%for category in categories%}
+                    {%if category['id'] == event.get('category_id')%}
+                    <option value="{{category['id']}}" selected>{{category['name']}}</option>
+                    {%else%}
+                    <option value="{{category['id']}}">{{category['name']}}</option>
+                    {%endif%}
+                    
+                {%endfor%}
+            </select> 
+            <span class="help text-danger" style="display: none;"></span>
+        </div> 
+        <div class="mb-3">
+            <label class="form-label">Event Name</label> 
+            <input value="{{event.get('name') or ''}}" type="text" name="title" id="event_title" class="form-control event_title" aria-required="true" aria-invalid="false"> 
+            <span class="help text-danger" style="display: none;"></span>
+        </div> 
+        <div class="mb-3">
+            <label class="form-label">Event URL</label> 
+            <input value="{{event.get('slug') or ''}}" type="text" class="form-control event_slug" name="slug" id="event_slug" aria-required="true" aria-invalid="false"> 
+            <p><a target="_blank" href=""></a></p>
+        </div> 
+        <div class="mb-3">
+            <label class="form-label">Excerpt (Short Info)</label> 
+            <input type="text" value="{{event.get('excerpt') or ''}}" name="excerpt" class="form-control" aria-required="true" aria-invalid="false"> 
+            <span class="help text-danger" style="display: none;"></span>
+        </div> 
+        <div class="mb-3">
+            <label class="form-label">Description</label> 
+            <textarea rows="3" name="description" class="form-control" aria-required="true" aria-invalid="false" style="">
+                {{event.get('description') or ''}}
+            </textarea>  
+            <span class="help text-danger" style="display: none;"></span>
+        </div> 
+        <div class="mb-3">
+            <label class="form-label">Why to attend event? </label> 
+            <textarea rows="3" name="faq" class="form-control" style="">{{event.get('faq') or ''}}</textarea>  
+            <span class="help text-danger" style="display: none;"></span>
+        </div> 
+        <div class="mb-3">
+            <label class="form-label">Offline Payment Instructions </label> 
+            <textarea rows="3" name="offline_payment_info" class="form-control">{{event.get('offline_payment_instruction') or ''}}</textarea> 
+            <p>Instructions to show under Offline Payment Option</p>
+        </div> 
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item d-flex justify-content-between px-0">
+                <div>
+                    <h5 class="mb-0">Event Featured</h5> 
+                    <span class="small text-muted text-wrap">Only Admin can make an event featured to show it in Featured Events on Homepage.</span>
+                </div> 
+                <div>
+                    <div class="form-check form-switch">
+                        <input type="checkbox" id="featured" name="featured" class="form-check-input form-check-input-lg" value=""> 
+                        <label for="featured" class="form-check-label"></label>
+                    </div>
+                </div>
+            </li> 
+            <li class="list-group-item d-flex justify-content-between px-0">
+                <div>
+                    <h5 class="mb-0">Event Status</h5> 
+                    <span class="small text-muted text-wrap">Only Admin can force Disable/Enable the Event, Disabled Event will be hidden from webstie.</span>
+                </div> 
+                <div>
+                    <div class="form-check form-switch">
+                        <input type="checkbox" id="status" name="status" class="form-check-input form-check-input-lg" value="1"> 
+                        <label for="status" class="form-check-label"></label>
+                    </div>
+                </div>
+            </li>
+        </ul> 
+        <button type="submit" class="btn btn-primary btn-lg mt-2"><i class="fas fa-sd-card"></i> Save</button>
+</form>

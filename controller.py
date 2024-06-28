@@ -19,6 +19,15 @@ class Category:
         category = Model_Category(*query[0])
 
         return category.to_dict()
+
+    @staticmethod
+    async def find(id):
+        query = await DatabaseManager.query(f"select * from categories where id=%d"%(id))
+        if query == None or len(query) == 0:
+            return None
+        category = Model_Category(*query[0])
+
+        return category.to_dict()
     
     @staticmethod
     async def get_all():
@@ -34,6 +43,12 @@ class Category:
 
 class Venue:
     @staticmethod
+    async def add_quote(name,email,phone,guests,message,venue):
+        query = await DatabaseManager.insert(f"insert into venue_quotes (venue_id,name,email,phone,guests,message) values('%s','%s','%s','%s','%s','%s')"%(venue,name,email,phone,guests,message))
+        if query and query == True:
+            return True
+        return None
+    @staticmethod
     async def create(name,slug,thumb,status,*args):
         query = DatabaseManager.insert(f"insert into venues (name,slug,images,status) values('%s','%s','%s','%s')"%(name,slug,thumb,status))
         if query and query == True:
@@ -42,6 +57,15 @@ class Venue:
     @staticmethod
     async def find(id):
         query = await DatabaseManager.query(f"select * from venues where id=%d"%(id))
+        if query == None or len(query) == 0:
+            return None
+        category = Model_Venue(*query[0])
+
+        return category.to_dict()
+
+    @staticmethod
+    async def find_slug(id):
+        query = await DatabaseManager.query(f"select * from venues where slug like '%s'"%("%"+id+"%"))
         if query == None or len(query) == 0:
             return None
         category = Model_Venue(*query[0])
@@ -286,6 +310,15 @@ class Booking:
         booking = Model_Booking(*query[0])
 
         return booking.to_dict()
+
+    @staticmethod
+    async def find_order(order_no):
+        query = await DatabaseManager.query(f"select * from bookings where id=%d or order_number='%s'"%(order_no,order_no))
+        if query == None or len(query) == 0:
+            return None
+        booking = Model_Booking(*query[0])
+
+        return booking.to_dict()
     
     @staticmethod
     async def get_all():
@@ -300,10 +333,66 @@ class Booking:
             bookings.append(ctg.to_dict())
         return bookings
 
+class Ticket:
+    @staticmethod
+    async def find_event(id):
+        query = await DatabaseManager.query(f"select * from event_tickets where event_id='%s'"%(id))
+        if query == None or len(query) == 0:
+            return []
+        tickets = []
+        for ticket in query:
+            t = Model_EventTicket(*ticket)
+            tickets.append(t.to_dict())
+        return tickets
+    
+    @staticmethod
+    async def find(id):
+        query = await DatabaseManager.query(f"select * from event_tickets where id=%d"%(id))
+        if query == None or len(query) == 0:
+            return None
+        ticket = Model_EventTicket(*query[0])
+
+        return ticket.to_dict()
+
+    @staticmethod
+    async def get_all():
+        tickets = []
+        #return []
+        query = await DatabaseManager.query(f"select * from event_tickets order by id desc")
+        if query == None or len(query) == 0:
+            return tickets
+
+        for c in query:
+            ctg = Model_EventTicket(*c)
+            tickets.append(ctg.to_dict())
+        return tickets
+
 class Event:
     @staticmethod
-    async def create(name,*args):
-        query = DatabaseManager.insert(f"insert into events (name) values('%s')"%(name))
+    async def create(data):
+        if data.get('event_id') == None:
+            query = DatabaseManager.insert(f"insert into events (name,organiser_id,category_id,slug,excerpt,description,faq,offline_payment_instruction,featured,status) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(data['name'],data['oragniser_id'],data['category_id'],data['slug'],data['excerpt'],data['description'],data['faq'],data['offline_payment_instruction'],data['featured'],data['status']))
+        else:
+            query = DatabaseManager.update(f"update events set name='%s',organiser_id='%s',category_id='%s',slug='%s',excerpt='%s',description='%s',faq='%s',offline_payment_instruction='%s',featured,status='%s'  where id='%s'"%(data['name'],data['oragniser_id'],data['category_id'],data['slug'],data['excerpt'],data['description'],data['faq'],data['offline_payment_instruction'],data['featured'],data['status'],data['event_id']))
+        if query and query == True:
+            return True
+        return None
+    @staticmethod
+    async def update(data,step=0):
+        if step == 2:
+            query = DatabaseManager.update(f"update events set start_date='%s',start_time='%s',end_date='%s',end_time='%s',repetitive='%s'  where id='%s'"%(data['start_date'],data['start_time'],data['end_date'],data['end_time'],data['repetitive'],data['event_id']))
+        elif step == 3:
+            query = DatabaseManager.insert(f"insert into event_tickets (event_id,ticket_name,ticket_price,ticket_quantity,customer_limit,ticket_description) values('%s','%s','%s','%s','%s','%s')"%(data['event_id'],data['ticket_name'],data['ticket_price'],data['ticket_quantity'],data['customer_limit'],data['description']))
+        elif step == 4:
+            query = DatabaseManager.update(f"update events set online_event='%s',venue_id='%s' where id='%s'"%(data['online_event'],data['venue_id'],data['event_id']))
+        elif step == 5:
+            query = DatabaseManager.update(f"update events set video_link='%s',thumb_image='%s',poster_image='%s',images='%s' where id='%s'"%(data['video_link'],data['thumb_image'],data['poster_image'],data['images'],data['event_id']))
+        elif step == 6:
+            query = DatabaseManager.update(f"update events set meta_title='%s',meta_description='%s',meta_keywords='%s' where id='%s'"%(data['meta_title'],data['meta_description'],data['meta_keywords'],data['event_id']))
+        elif step == 7:
+            query = DatabaseManager.update(f"update events set tags = '%s' where id='%s'"%(data['tags'],data['event_id']))
+        else:
+            query = False
         if query and query == True:
             return True
         return None
@@ -340,7 +429,15 @@ class Event:
 class User:
     @staticmethod
     async def find(id):
-        query = await DatabaseManager.query(f"select * from users where id=%d"%(id))
+        query = await DatabaseManager.query(f"select * from users where id='%s'"%(id))
+        if query == None or len(query) == 0:
+            return None
+        user = Model_User(*query[0])
+
+        return user.to_dict()
+    @staticmethod
+    async def find_one(id):
+        query = await DatabaseManager.query(f"select * from users where email='%s'"%(id))
         if query == None or len(query) == 0:
             return None
         user = Model_User(*query[0])

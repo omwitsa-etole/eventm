@@ -6,11 +6,19 @@
         <label class="form-label mb-0">Thumbnail Image</label> 
         <p class="mb-2 mt-0"><small class="text-muted">Pinch/Scroll to zoom Drag Left/Right to adjust</small></p> 
         <div class="croppa-container       croppa-thumbnail ">
-            <input type="file" accept=".jpg,.jpeg,.png" style="height: 1px; width: 1px; overflow: hidden; margin-left: -99999px; position: absolute;"> 
+            {%if event.get('thumb_image') != None and event['thumb_image'] != ''%}
+                <input class="form-control" value="{{event['thumb_image']}}">
+                
+                <input type="hidden" id="thumb_image" name="thumb_image" accept=".jpg,.jpeg,.png" class="form-control">
+                <img src="/static/uploads/{{event['thumb_image']}}" onclick="document.getElementById('thumb_image').click()" width="854" height="480" style="width: 254px; height: 280px; background-color: transparent;"></img> 
+            {%else%}
+                <input type="file" id="thumb_image" name="thumb_image" accept=".jpg,.jpeg,.png" class="form-control"> 
+                <canvas onclick="document.getElementById('thumb_image').click()" width="854" height="480" style="width: 254px; height: 280px; background-color: transparent;"></canvas> 
+            {%endif%}
             <div class="slots" style="width: 0px; height: 0px; visibility: hidden;">
                 <img crossorigin="anonymous" class=" p-2"> 
             </div> 
-            <canvas width="854" height="480" style="width: 854px; height: 480px; background-color: transparent;"></canvas> 
+            
         </div> 
         <span class="help-block text-danger" style="display: none;"></span> 
         <p class="mb-0 text-muted">Upload 16:9 ratio thumbnail image of atleast 1280x720 px (jpg/jpeg/png)</p>
@@ -21,11 +29,18 @@
         <label class="form-label mb-0">Poster Image</label> 
         <p class="mb-2 mt-0"><small class="text-muted">Pinch/Scroll to zoom Drag Left/Right to adjust</small></p> 
         <div class="croppa-container       croppa-cover  p-2">
-            <input type="file" accept=".jpg,.jpeg,.png" style="height: 1px; width: 1px; overflow: hidden; margin-left: -99999px; position: absolute;"> 
+            {%if event.get('poster_image') != None and event['poster_image'] != ''%}
+            <input class="form-control" value="{{event['poster_image']}}">
+                
+            <input type="hidden" id="poster_image" name="poster_image" accept=".jpg,.jpeg,.png" class="form-control">
+            <img src="/static/uploads/{{event['poster_image']}}" onclick="document.getElementById('poster_image').click()" width="854" height="480" style="width: 254px; height: 280px; background-color: transparent;"></img> 
+            {%else%}
+            <input type="file" id="poster_image" name="poster_image" accept=".jpg,.jpeg,.png" class="form-control"> 
             <div class="slots" style="width: 0px; height: 0px; visibility: hidden;">
                 <img crossorigin="anonymous" class=""> 
             </div> 
-            <canvas width="1280" height="720" style="width: 1280px; height: 720px; background-color: transparent;"></canvas> <!----> <!----> 
+            <canvas  onclick="document.getElementById('poster_image').click()" width="1280" height="720" style="width: 280px; height: 220px; background-color: transparent;"></canvas> <!----> <!----> 
+            {%endif%}
         </div> 
         <span class="help text-danger" style="display: none;"></span> 
         <p class="mb-0 text-muted">Upload 16:9 ratio poster image of atleast 1280x720 px (jpg/jpeg/png)</p>
@@ -34,7 +49,15 @@
 <div class="mb-3">
     <label class="form-label">Images Gallery</label> 
     <div class="col-md-12 mb-3">
-        <input multiple="multiple" type="file" name="images[]" class="form-control"> 
+        {%if event.get('iamges') != None and event['images'] != ''%}
+            <div style="display:flex;width: 100%;flex-direction:column;">
+            {%for image in images.split(';')%}
+                <img src="/static/uploads/{{image}}" style="width: 25%;flex: auto;max-height: 186px;"></img>
+            {%endfor%}
+            </div>
+        {%else%}
+        <input multiple="multiple" type="file" name="images" class="form-control"> 
+        {%endif%}
         <span class="text-muted">Upload images related to your Event</span> 
         <span class="help text-danger" style="display: none;"></span>
     </div> 
@@ -45,7 +68,7 @@
 <div class="mb-3">
     <label class="form-label">YouTube Video URL  (Optional)</label> 
     <div class="col-md-12">
-        <input type="text" name="video_link" placeholder="e.g Zjq1zRWpcgs" class="form-control"> 
+        <input type="text" value="{{event.get('video_link') or ''}}"name="video_link" placeholder="e.g Zjq1zRWpcgs" class="form-control"> 
         <span class="text-muted">Enter Video ID Only https://www.youtube.com/watch?v=<strong>Zjq1zRWpcgs</strong></span>
     </div>
 </div> 

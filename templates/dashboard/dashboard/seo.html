@@ -1,5 +1,8 @@
-<div class="mb-2"><label class="form-label">Meta title</label> <input type="text" name="meta_title" class="form-control"> <span class="help text-danger" style="display: none;"></span></div>
+<div class="mb-2"><label class="form-label">Meta title</label> 
+    <input type="text" value="{{event.get('meta_title')}}" name="meta_title" class="form-control"> <span class="help text-danger" style="display: none;"></span></div>
 
-<div class="mb-2"><label class="form-label">Meta tags</label> <input type="text" name="meta_keywords" class="form-control"> <span class="help text-danger" style="display: none;"></span></div>
+<div class="mb-2"><label class="form-label">Meta tags</label> 
+    <input type="text" name="meta_keywords" value="{{event.get('meta_keywords') or ''}}"  class="form-control"> <span class="help text-danger" style="display: none;"></span></div>
 
-<div class="mb-2"><label class="form-label">Meta description</label> <input type="text" name="meta_description" class="form-control"> <span class="help text-danger" style="display: none;"></span></div>
+<div class="mb-2"><label class="form-label">Meta description</label> 
+    <input type="text" name="meta_description" value="{{event.get('meta_description' or '')}}"  class="form-control"> <span class="help text-danger" style="display: none;"></span></div>

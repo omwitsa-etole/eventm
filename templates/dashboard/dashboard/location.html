@@ -19,33 +19,17 @@
                     <label class="form-label">Event Venues (Optional)</label> 
                     <div tabindex="-1" role="combobox" aria-owns="listbox-ajax" class="multiselect form-control form-control-sm px-0 py-0 border-0">
                         <div class="multiselect__select"></div>  
-                        <div class="multiselect__tags">
-                            <div class="multiselect__tags-wrap" style="display: none;"></div> <!----> 
-                            <div class="multiselect__spinner" style="display: none;"></div> 
-                            <input name="" id="ajax" type="text" autocomplete="off" spellcheck="false" placeholder="-- Search Venues --" tabindex="0" aria-controls="listbox-ajax" class="multiselect__input" style="width: 0px; position: absolute; padding: 0px;"> <!----> 
-                            <span class="multiselect__placeholder">
-                                 -- Search Venues --
-                            </span>
-                        </div> 
-                        <div tabindex="-1" class="multiselect__content-wrapper" style="max-height: 115.969px; display: none;">
-                            <ul role="listbox" id="listbox-ajax" class="multiselect__content" style="display: inline-block;"> <!----> 
-                                <li id="ajax-0" role="option" class="multiselect__element">
-                                    <span data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove" class="multiselect__option multiselect__option--highlight">
-                                        <span>Australia Grand Hawk View</span>
-                                    </span> <!---->
-                                </li>
-                                <li id="ajax-1" role="option" class="multiselect__element">
-                                    <span data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove" class="multiselect__option">
-                                        <span>Frances Show Town</span>
-                                    </span> <!---->
-                                </li>
-                                <li id="ajax-2" role="option" class="multiselect__element">
-                                    <span data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove" class="multiselect__option">
-                                        <span>Italy Street Show</span>
-                                    </span> <!---->
-                                </li> 
-                            </ul>
-                        </div>
+                        <select name="venue_id" class="form-control">
+                            <option value="" >select venue</option>
+                            {%for venue in venues%}
+                                {%if venue['id'] == event.get('venue_id')%}
+                                <option value="{{venue['id']}}" selected>{{venue['name']}}</option>
+                                {%else%}
+                                <option value="{{venue['id']}}">{{venue['name']}}</option>
+                                {%endif%}
+                            {%endfor%}
+                        </select>
+                        
                     </div>
                 </div> 
                 <div class="mb-3">

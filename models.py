@@ -16,7 +16,7 @@ class Model_Venue:
         self.name = args[1]
         self.slug = args[2]
         self.images = args[3]
-        self.statusdescription = args[4]
+        self.description = args[4]
         self.venue_type = args[5]
         self.seated_guestnumber = args[6]
         self.standing_guestnumber = args[7]
@@ -110,9 +110,32 @@ class Model_Booking:
     def to_dict(self):
         return self.__dict__
 
+class Model_EventTicket:
+    def __init__(self,*args):
+        self.id = args[0]
+        self.event_id = args[1]
+        self.ticket_name = args[2]
+        self.ticket_price = args[3]
+        self.ticket_quantity = args[4]
+        self.customer_limit = args[5]
+        self.ticket_description = args[6]
+        self.created_at = args[-3]
+        self.updated_at = args[-2]
+        self.deleted_at = args[-1]
+    def to_dict(self):
+        return self.__dict__
 class Model_Event:
     def __init__(self,*args):
         self.id = args[0]
+        self.name = args[1]
+        self.organiser_id = args[2];self.category_id = args[3];self.slug = args[4]
+        self.excerpt = args[5];self.description=args[6];self.faq = args[7];self.offline_payment_instruction = args[8]
+        self.featured = args[9];self.status = args[10];self.start_date = args[11];self.start_time=args[12];self.end_date = args[13]
+        self.end_time = args[14];self.repetitive = True if args[15] == 1 else False;self.online_event = True if args[16] == 1 else False;self.venue_id = args[17]
+        self.video_link = args[18];self.thumb_image=args[19];self.poster_image = args[20]
+        self.images  = args[21]
+        self.meta_title = args[22];self.meta_description = args[23];self.meta_keywords = args[24];self.tags = args[25]
+        self.updated_at = args[-3];self.created_at = args[-2];self.deleted_at = args[-1]
     def to_dict(self):
         return self.__dict__
 

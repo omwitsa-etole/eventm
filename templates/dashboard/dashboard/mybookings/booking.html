@@ -1,4 +1,4 @@
-{%extends 'dashboard/dashboard/myevents/manage.html'%}
+{%extends 'dashboard/dashboard/main.html'%}
 
 {%block content%}
 
@@ -16,15 +16,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div>
-                        <div class="card shadow-sm border-0">
+                    <div class="card shadow-sm border-0">
                             <div class="card-header d-flex justify-content-between flex-wrap p-4 bg-white border-bottom-0">
                                 <div class="d-flex flex-column">
                                     <div><h1 class="fw-bold h2">Booking {{id}}</h1></div> 
                                     <div class="d-flex">
                                         <div class="me-2">
-                                            <select name="event_id" class="form-select">
-                                                <option value="0">All Events </option> 
-                                            </select>
+                                            <input type="button" class="form-control" value="Download Ticket" onclick="location.href='/download/ticket/{{id}}'">
                                         </div>
                                     </div>
                                 </div>
@@ -33,23 +31,170 @@
                         
                     </div> 
                     <div class="table-responsive">
-                        <table class="table text-wrap">
-                            <thead class="table-light text-nowrap">
-                                <tr>
-                                    <th class="border-top-0 border-bottom-0">Event</th> 
-                                    <th class="border-top-0 border-bottom-0">Booking</th> 
-                                    <th class="border-top-0 border-bottom-0">Commission</th> 
-                                    <th class="border-top-0 border-bottom-0">Profit</th> 
-                                    <th class="border-top-0 border-bottom-0">Month</th> 
-                                    <th class="border-top-0 border-bottom-0">Transferred</th>
-                                </tr>
-                            </thead> 
-                            <tbody> 
-                                <tr>
-                                    <td colspan="6" class="text-center align-middle">No Booking!</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <section class="db-wrapper">
+
+            
+                                    <main>
+                    
+                            <section class="bg-light">
+                    
+                                <div class="container py-lg-5">
+                    
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-12">
+                                            <!-- Card -->
+                                            <div class="card border-0 shadow-sm">
+                    
+                                                <!-- Card body -->
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        
+                    
+                                                        <h3 class="text-center bg-light p-3">Booking Info</h3>
+                                                        <table class="table">
+                                                            <tbody><tr>
+                                                                <th>Order Id</th>
+                                                                <td>1573309109877</td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Event Category</th>
+                                                                <td>Business &amp; Seminars</td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Event</th>
+                                                                <td>Product Marketing Workshop</td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Repetitive</th>
+                                                                <td>No</td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Ticket</th>
+                                                                <td>Early Bird</td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Ticket Price</th>
+                                                                <td>10.00</td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Total amount paid</th>
+                                                                <td>21.00 USD</td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Start Date</th>
+                                                                <td>09 Dec 2024
+                                                                    (UTC)
+                                                                </td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>End Date</th>
+                                                                                                                <td>09 Dec 2024
+                                                                        (UTC)
+                                                                    </td>
+                                                                                                        </tr>
+                    
+                                                            <tr>
+                                                                <th>Start Time</th>
+                                                                <td>
+                                                                    09 Dec 2024 01:30 PM
+                                                                    (UTC)
+                                                                </td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>End Time</th>
+                                                                <td>09 Dec 2024 03:30 PM
+                                                                    (UTC)
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Booking Date</th>
+                                                                <td>09 Nov 2024
+                                                                    (UTC)
+                                                                </td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Booking Status</th>
+                                                                <td><span class="label label-success">Active</span>
+                                                                </td>
+                                                            </tr>
+                    
+                                                            <tr>
+                                                                <th>Booking Cancellation</th>
+                                                                                                                <td><span class="label label-info"> No cancellation</span></td>
+                                                                                                        </tr>
+                    
+                                                            <tr>
+                                                                <th>Payment Type</th>
+                                                                <td>
+                                                                                                                        <span class="label label-default">offline</span>
+                                                                                                                </td>
+                    
+                                                            </tr><tr>
+                                                                <th>Paid </th>
+                                                                <td>
+                    
+                                                                                                                        <span class="label label-success"> Yes </span>
+                                                                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="col-xl-6 col-lg-6 col-12">
+                                            <!-- Card -->
+                                            <div class="card mb-4 border-0 shadow-sm">
+                    
+                                                <!-- Card body -->
+                                                <div class="card-body">
+                                                    
+                    
+                                                    <h3 class="text-center bg-light p-3">Customer Info</h3>
+                                                    <hr>
+                                                    <table class="table table-hover">
+                                                        <tbody><tr>
+                                                            <th>Name</th>
+                                                            <td>Cora Woods</td>
+                                                        </tr>
+                    
+                                                        <tr>
+                                                            <th>Email</th>
+                                                            <td>corawoods@mail.com</td>
+                                                        </tr>
+                    
+                                                    </tbody></table>
+                    
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                    </div>
+                    
+                                    
+                                </div>
+                            </section>
+                    
+                    
+                    
+                        </main>
+                    
+                                
+                                <vue-progress-bar></vue-progress-bar>
+                            </section>
                     </div> <!---->
                 </div>
             </div>

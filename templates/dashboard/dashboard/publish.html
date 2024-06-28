@@ -1,5 +1,30 @@
-<div ><div is_admin="true" organiser_id="6" event_ck="[object Object]" selected_organiser="[object Object]" server_timezone="Asia/Kolkata"><form method="POST" enctype="multipart/form-data" class="lgx-contactform"><div class="mb-3"><label class="form-label">Event Tags (Optional)</label> <div tabindex="-1" role="combobox" aria-owns="listbox-ajax" class="multiselect form-control px-0 py-0 border-0"><div class="multiselect__select"></div>  <div class="multiselect__tags"><div class="multiselect__tags-wrap" style="display: none;"></div> <!----> <div class="multiselect__spinner" style="display: none;"></div> <input name="" id="ajax" type="text" autocomplete="off" spellcheck="false" placeholder="-- Search Tags --" tabindex="0" aria-controls="listbox-ajax" class="multiselect__input" style="width: 0px; position: absolute; padding: 0px;"> <!----> <span class="multiselect__placeholder">
-          -- Search Tags --
-        </span></div> <div tabindex="-1" class="multiselect__content-wrapper" style="max-height: 211.969px; display: none;"><ul role="listbox" id="listbox-ajax" class="multiselect__content" style="display: inline-block;"> <!----> <li id="ajax-0" role="option" class="multiselect__element"><span data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove" class="multiselect__option multiselect__option--highlight"><span>Skylar Williams (chief guests)</span></span> <!----></li><li id="ajax-1" role="option" class="multiselect__element"><span data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove" class="multiselect__option"><span>Chaya Davidson (chief guests)</span></span> <!----></li><li id="ajax-2" role="option" class="multiselect__element"><span data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove" class="multiselect__option"><span>Digital Human (sponsors)</span></span> <!----></li><li id="ajax-3" role="option" class="multiselect__element"><span data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove" class="multiselect__option"><span>Yellow Bepink (sponsors)</span></span> <!----></li><li id="ajax-4" role="option" class="multiselect__element"><span data-select="Press enter to select" data-selected="Selected" data-deselect="Press enter to remove" class="multiselect__option"><span>Becom (sponsors)</span></span> <!----></li> <li style="display: none;"><span class="multiselect__option"><span> Tags not found</span></span></li> <li style="display: none;"><span class="multiselect__option">List is empty.</span></li> </ul></div></div></div> <div><div class="custom_model"><button type="button" class="btn btn-secondary"><i class="fa fa-user-tag"></i> Add Tag</button> <!----></div></div> <div><button type="submit" class="btn btn-primary btn-lg mt-3"><i class="fas fa-sd-card"></i> Save</button></div></form> <hr> <div class="bg-light card shadow-sm mt-3"><div class="card-header p-4 bg-white"><h3 class="mb-0">Publish Event</h3> <p class="mb-0">Once you complete all the required steps, your event becomes eligible for Publish</p></div> <div class="card-body p-4"><!----> <button type="button" disabled="disabled" class="btn btn-outline-success btn-lg btn-outline--success"><i class="fas fa-eye"></i> <!----> 
+
+      <div class="mb-3"><label class="form-label">Event Tags (Optional)</label> 
+        <div tabindex="-1" role="combobox" aria-owns="listbox-ajax" class="multiselect form-control px-0 py-0 border-0">
+          <div class="multiselect__select"></div>  
+          
+          <select class="form-control" name="select_tags" class="select_tags">
+            <option value=''></option>
+            {%for tag in tags%}
+              <option value="{{tag['id']}}">{{tag['name']}}</option>
+            {%endfor%}
+          </select>
+          {%if event.get('tags') and event['tags'] != ''%}
+            <h5>Available tags</h5>
+            <ul>
+              {%for tag in tags.split(';')%}
+                <li>{{tag}}</li>
+              {%endfor%}
+            </ul>
+          {%endif%}
+          <input type="hidden" value="{{event.get('tags')}}"  class="form-control" readonly name="tags" id="tags">
+          </div>
+        </div> 
+        <div>
+          <div class="custom_model"><button type="button" class="btn btn-secondary">
+            <i class="fa fa-trash"></i> Clear tags</button> <!----></div></div> 
+            <div><button type="submit" class="btn btn-primary btn-lg mt-3">
+              <i class="fas fa-sd-card"></i> Save</button></div> <hr> <div class="bg-light card shadow-sm mt-3">
+                <div class="card-header p-4 bg-white"><h3 class="mb-0">Publish Event</h3> <p class="mb-0">Once you complete all the required steps, your event becomes eligible for Publish</p></div> <div class="card-body p-4"><!----> <button type="button" disabled="disabled" class="btn btn-outline-success btn-lg btn-outline--success"><i class="fas fa-eye"></i> <!----> 
                 Publish Event
-            </button></div></div></div></div>
+            </button></div></div>
